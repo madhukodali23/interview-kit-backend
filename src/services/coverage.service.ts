@@ -38,3 +38,35 @@ export const getMissingMustRequirements = (
     return !result?.covered;
   });
 };
+
+export const completeCoverage = async (
+  requirements: Requirement[],
+  questions: Question[],
+): Promise<Question[]> => {
+  const coverage = calculateCoverage(
+    requirements,
+    questions,
+  );
+
+  const missingRequirements =
+    getMissingMustRequirements(
+      requirements,
+      coverage,
+    );
+
+  if (missingRequirements.length === 0) {
+    return questions;
+  }
+
+  const { generateMissingQuestions } =
+    await import("./missingQuestions.service.js");
+
+  const result = await generateMissingQuestions(
+    missingRequirements,
+  );
+
+  return [
+    ...questions,
+    ...result.questions,
+  ];
+};

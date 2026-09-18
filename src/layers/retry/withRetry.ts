@@ -1,3 +1,5 @@
+import { isRetryableError } from "./isRetryableError.js";
+
 export interface RetryOptions {
   retries: number;
   baseDelayMs: number;
@@ -15,7 +17,10 @@ export const withRetry = async <T>(
     } catch (error) {
       lastError = error;
 
-      if (attempt === options.retries) {
+      if (
+        !isRetryableError(error) ||
+        attempt === options.retries
+      ) {
         break;
       }
 

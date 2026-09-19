@@ -8,31 +8,33 @@
         "companyUrl": "https://www.mongodb.com"
       },
       "companyBrief": {
-        "overview": "MongoDB empowers innovators to create, transform, and disrupt industries by unleashing the power of software and data. Founded in 2007 by veterans of DoubleClick who wanted a more scalable, flexible database, MongoDB is now a leader in data platforms with 67,000+ customers, 1,000+ technology and service partners, and 5,000+ employees globally. Their mission is to give builders the tools they need to create the next generation of intelligent applications.",
+        "overview": "MongoDB empowers innovators to create, transform, and disrupt industries by unleashing the power of software and data. Founded in 2007 by veterans of DoubleClick, MongoDB (formerly 10gen) was created to build a more scalable and flexible data platform. MongoDB is a modern, multi-cloud data platform with over 67,000 customers, 1,000+ technology and service partners, 5,000+ employees, and 175,000+ builders. Its mission is to give builders the tools they need to create the next generation of intelligent applications, including AI agents with accurate, relevant data.",
         "products": [
           "MongoDB Atlas",
+          "MongoDB Enterprise Server",
           "Atlas Vector Search",
           "Atlas Stream Processing",
-          "Automated Embedding powered by Voyage AI",
+          "Atlas Search",
+          "Automated Embedding in MongoDB Atlas powered by Voyage AI",
           "Voyage AI embedding and reranking models",
-          "MongoDB Enterprise Server"
+          "Atlas Embedding and Reranking API"
         ],
-        "industry": "Data platform and database software",
+        "industry": "Software / Data Platform",
         "culture": [
-          "Inclusion is core to all we do—we ensure MongoDB is a place where people of all backgrounds can build their careers.",
-          "Employees are expected to deliver the right outcomes for customers, live our values, and engage with each other as leaders.",
-          "We commit to creating a culture of belonging and take a flexible approach to hybrid work.",
-          "MongoDB has been recognized as a best place to work in 2025 and 2026.",
-          "Benefits aim to make a meaningful impact in the lives of employees worldwide, rooted in an inclusive culture and values.",
-          "Our core values guide how we collaborate, and we are committed to building a culture of growth and accountability."
+          "Inclusion is core to all that we do; MongoDB aims to be a place where people of all backgrounds can build their careers.",
+          "All employees are keepers of MongoDB's culture and are expected to deliver the right outcomes for customers, live company values, and engage with each other as leaders.",
+          "MongoDB commits to creating a culture of belonging and recognizes that people do their best work when they feel supported.",
+          "MongoDB has a hybrid work approach that defines flexibility not just on some days.",
+          "The company focuses on inclusion, sustainability, and building a culture of growth, accountability, and collaborative ownership.",
+          "Recognized as a best place to work, including Built In and Glassdoor employee recognition."
         ],
         "engineering": [
-          "MongoDB Atlas integrates operational and vector databases in a single, unified platform for building AI and agentic applications.",
-          "Automated Embedding built into MongoDB Atlas enables accurate retrieval directly in the database, eliminating separate embedding pipelines.",
-          "Atlas Stream Processing lets developers work with high-velocity data streams using the same MongoDB Aggregation Pipeline stages as the database.",
-          "Document data model maps to application access patterns, with secondary indexing, joins, multi-document ACID transactions, and millisecond response times.",
-          "MongoDB and Temporal introduced a joint reference architecture pairing Temporal's durable execution with MongoDB and Voyage AI for state, memory, and retrieval.",
-          "Voyage AI models achieve top retrieval accuracy rankings, and the Voyage 4 series establishes a new retrieval accuracy frontier for search, RAG, and agentic solutions."
+          "MongoDB Atlas unifies operational and vector databases in a single platform, supporting semantic search, recommendation engines, Q&A systems, anomaly detection, and generative AI apps.",
+          "Atlas Stream Processing unifies the developer experience by enabling high-velocity data stream processing with the same MongoDB Aggregation Pipeline stages.",
+          "MongoDB uses a flexible document data model with rich query capabilities, including secondary indexing, joins, multi-document ACID transactions, and millisecond response times at scale.",
+          "Automated Embedding in MongoDB Atlas powered by Voyage AI brings accurate retrieval directly into the database, eliminating the need for a separate embedding pipeline to build or keep in sync.",
+          "MongoDB integrates with 100+ technologies in its ecosystem and partners with cloud providers such as AWS, Microsoft Azure, and Google Cloud.",
+          "A joint MongoDB and Temporal reference architecture pairs durable execution with MongoDB and Voyage AI for state, memory, and retrieval, enabling agents to act on live data with accurate retrieval."
         ]
       },
       "role": {
@@ -77,13 +79,13 @@
           {
             "id": "REQ-007",
             "text": "Experience with AWS",
-            "category": "preferred",
+            "category": "experience",
             "priority": "nice"
           },
           {
             "id": "REQ-008",
             "text": "Experience with Git",
-            "category": "preferred",
+            "category": "experience",
             "priority": "nice"
           }
         ]
@@ -91,115 +93,86 @@
       "questions": [
         {
           "id": "Q-001",
-          "question": "In React, what is the difference between useEffect and useLayoutEffect? Give an example of when you would use each.",
+          "question": "In React, what are controlled and uncontrolled components and when would you choose one over the other?",
           "category": "technical",
-          "difficulty": "medium",
+          "difficulty": "easy",
           "requirementIds": [
             "REQ-001"
           ]
         },
         {
           "id": "Q-002",
-          "question": "Explain JavaScript closures and hoisting. How can closures cause memory leaks?",
+          "question": "How would you design a RESTful API with Express, including route organization, input validation, and error handling? Specifically, write a middleware for authentication in Node.js.",
           "category": "technical",
           "difficulty": "medium",
           "requirementIds": [
-            "REQ-006"
+            "REQ-002",
+            "REQ-003",
+            "REQ-005"
           ]
         },
         {
           "id": "Q-003",
-          "question": "How does Node.js handle asynchronous operations? Describe the event loop and when you would use worker_threads.",
+          "question": "Suppose you're designing a MongoDB schema for an e-commerce platform. Describe the collections you'd create, how you'd reference or embed data, and what indexes you'd set up for common queries.",
           "category": "technical",
           "difficulty": "medium",
           "requirementIds": [
-            "REQ-002"
+            "REQ-004"
           ]
         },
         {
           "id": "Q-004",
-          "question": "What are Express middleware? How would you build a custom error-handling middleware and ensure async errors are caught?",
+          "question": "Explain the difference between the event loop, microtasks, and macrotasks in JavaScript. How does this affect performance in Node.js?",
           "category": "technical",
           "difficulty": "medium",
           "requirementIds": [
-            "REQ-003"
-          ]
-        },
-        {
-          "id": "Q-005",
-          "question": "In MongoDB, when would you embed documents versus use references? Give an example from a product catalog.",
-          "category": "technical",
-          "difficulty": "medium",
-          "requirementIds": [
-            "REQ-004"
-          ]
-        },
-        {
-          "id": "Q-006",
-          "question": "Design a RESTful API for a user profile with nested orders. How do you handle pagination, filtering, and status codes?",
-          "category": "technical",
-          "difficulty": "medium",
-          "requirementIds": [
-            "REQ-005"
-          ]
-        },
-        {
-          "id": "Q-007",
-          "question": "Design a scalable URL shortener using Node.js, Express, MongoDB, and AWS. Discuss how you would deploy, cache, and partition data.",
-          "category": "system-design",
-          "difficulty": "hard",
-          "requirementIds": [
-            "REQ-002",
-            "REQ-003",
-            "REQ-004",
-            "REQ-005",
-            "REQ-007"
-          ]
-        },
-        {
-          "id": "Q-008",
-          "question": "A MongoDB collection has millions of events. How would you create indexes and design an aggregation pipeline for querying events by user and date range?",
-          "category": "system-design",
-          "difficulty": "medium",
-          "requirementIds": [
-            "REQ-004"
-          ]
-        },
-        {
-          "id": "Q-009",
-          "question": "Tell me about a time where you had to make a breaking change to a REST API. How did you communicate it and manage migration?",
-          "category": "behavioral",
-          "difficulty": "medium",
-          "requirementIds": [
-            "REQ-005"
-          ]
-        },
-        {
-          "id": "Q-010",
-          "question": "Describe a project where you used React and Node to solve a user problem from start to finish. What was your role and how did you measure success?",
-          "category": "behavioral",
-          "difficulty": "medium",
-          "requirementIds": [
-            "REQ-001",
+            "REQ-006",
             "REQ-002"
           ]
         },
         {
-          "id": "Q-011",
-          "question": "How do you use Git to support collaboration? Describe your branching strategy and how you handle merge conflicts.",
-          "category": "technical",
+          "id": "Q-005",
+          "question": "Design a multi-user blogging platform using React, Node.js, Express, and MongoDB. Cover the schema, REST API endpoints, and how you would deploy it on AWS to handle traffic spikes.",
+          "category": "system-design",
+          "difficulty": "hard",
+          "requirementIds": [
+            "REQ-001",
+            "REQ-002",
+            "REQ-003",
+            "REQ-004",
+            "REQ-005",
+            "REQ-006",
+            "REQ-007"
+          ]
+        },
+        {
+          "id": "Q-006",
+          "question": "Describe your Git branching strategy for a team working on a full-stack JavaScript application. How do you ensure code quality through pull requests and code reviews?",
+          "category": "behavioral",
           "difficulty": "easy",
           "requirementIds": [
             "REQ-008"
           ]
         },
         {
-          "id": "Q-012",
-          "question": "MongoDB encourages trying new things and taking bold risks. Tell me about a time you introduced a new technology (e.g., an AWS service) into an existing project and how you handled adoption.",
-          "category": "company-fit",
+          "id": "Q-007",
+          "question": "How would you use MongoDB's aggregation pipeline in a Node.js endpoint to generate a sales report? What performance pitfalls would you watch for?",
+          "category": "technical",
           "difficulty": "medium",
           "requirementIds": [
-            "REQ-007"
+            "REQ-004",
+            "REQ-002",
+            "REQ-006"
+          ]
+        },
+        {
+          "id": "Q-008",
+          "question": "MongoDB values Make it Matter and Own What You Do. Share an experience where you took ownership of a challenging feature in a React/Node.js project and delivered it successfully.",
+          "category": "company-fit",
+          "difficulty": "easy",
+          "requirementIds": [
+            "REQ-001",
+            "REQ-002"
           ]
         }
       ],
@@ -207,8 +180,8 @@
         {
           "id": "FC-001",
           "questionId": "Q-001",
-          "front": "In React, what is the difference between useEffect and useLayoutEffect? Give an example of when you would use each.",
-          "back": "useEffect runs asynchronously after the browser paints, so it is safe for side effects like data fetching, subscriptions, or manually updating DOM that does not need to block paint. useLayoutEffect runs synchronously after the DOM has been mutated but before the browser paints, so it is useful when you need to measure layout or make visual updates before the user sees a flicker. Example: fetch data with useEffect; measure and adjust element positions or scroll positions with useLayoutEffect.",
+          "front": "In React, what are controlled and uncontrolled components and when would you choose one over the other?",
+          "back": "Controlled components manage form data through React state and use value and onChange props, giving React full control. Uncontrolled components store form data in the DOM and are accessed with refs. Choose controlled when you need validation, dynamic fields, or to keep the UI in sync with state; choose uncontrolled for simple, less frequently updated forms or when you want minimal re-renders.",
           "requirementIds": [
             "REQ-001"
           ]
@@ -216,105 +189,76 @@
         {
           "id": "FC-002",
           "questionId": "Q-002",
-          "front": "Explain JavaScript closures and hoisting. How can closures cause memory leaks?",
-          "back": "A closure is a function that retains access to variables from its outer lexical scope even after the outer function has returned. Hoisting is JavaScript's behavior of moving declarations to the top of their scope: var is hoisted and initialized as undefined, functions are fully hoisted, and let/const are hoisted but in a temporal dead zone. Closures can cause memory leaks when they keep references to large objects, DOM nodes, or scopes that are no longer needed, preventing garbage collection. Solutions include explicit nulling, using WeakMap/WeakSet, or avoiding unnecessary closures.",
+          "front": "How would you design a RESTful API with Express, including route organization, input validation, and error handling? Specifically, write a middleware for authentication in Node.js.",
+          "back": "Organize routes with express.Router, split by resource e.g., /users, /posts. Validate inputs using Joi or express-validator in middleware. Centralize error handling by passing errors to next(err) and using an error-handling middleware. Authentication middleware example: verify the Authorization header, extract and verify the JWT, then attach the decoded user to req. Return 401 for missing/invalid tokens.",
           "requirementIds": [
-            "REQ-006"
+            "REQ-002",
+            "REQ-003",
+            "REQ-005"
           ]
         },
         {
           "id": "FC-003",
           "questionId": "Q-003",
-          "front": "How does Node.js handle asynchronous operations? Describe the event loop and when you would use worker_threads.",
-          "back": "Node.js handles asynchronous operations through libuv's event loop. The event loop has phases: timers, pending callbacks, idle/prepare, poll, check, and close callbacks. I/O, timers, and network operations are delegated to the system, and callbacks are queued and executed when the main thread is free. Use worker_threads for CPU-intensive JavaScript tasks such as parsing large data, image processing, or cryptography, because they run in separate threads and prevent the main event loop from being blocked.",
+          "front": "Suppose you're designing a MongoDB schema for an e-commerce platform. Describe the collections you'd create, how you'd reference or embed data, and what indexes you'd set up for common queries.",
+          "back": "Collections: users, products, orders, order-items, carts, reviews. Reference users and products by _id. Embed order line items as product snapshots so order history remains stable if products change. Use references for reviews when products need aggregate ratings. Indexes: product price, product category, order userId and order createdAt, cart userId, review productId.",
           "requirementIds": [
-            "REQ-002"
+            "REQ-004"
           ]
         },
         {
           "id": "FC-004",
           "questionId": "Q-004",
-          "front": "What are Express middleware? How would you build a custom error-handling middleware and ensure async errors are caught?",
-          "back": "Express middleware are functions that receive (req, res, next) and can end the request or pass control to the next middleware. Error-handling middleware must have four arguments: (err, req, res, next). To catch async errors, wrap async route handlers in a helper that calls next(err), or use try/catch. The custom error middleware should log the error, set an appropriate status code, and return a structured JSON response. You register it after all routes.",
+          "front": "Explain the difference between the event loop, microtasks, and macrotasks in JavaScript. How does this affect performance in Node.js?",
+          "back": "The event loop processes callbacks, I/O, and timers from the callback queue. Microtasks include Promise callbacks and queueMicrotask; they run immediately after the current operation and before the next macrotask. Macrotasks include setTimeout, setInterval, and I/O events. In Node.js, long microtask chains can starve macrotasks and delay I/O. Heavy CPU work in any callback blocks the event loop, so keep tasks small and avoid blocking the thread.",
           "requirementIds": [
-            "REQ-003"
+            "REQ-006",
+            "REQ-002"
           ]
         },
         {
           "id": "FC-005",
           "questionId": "Q-005",
-          "front": "In MongoDB, when would you embed documents versus use references? Give an example from a product catalog.",
-          "back": "Embed documents when the data is always accessed together, the subdocuments are small, and there is no independent lifecycle. Use references when data is large, shared across many entities, or needs to be updated independently. In a product catalog, embed variants, specifications, and reviews if they are always shown with the product. Use references for suppliers or categories because they are shared and may need to be updated separately.",
+          "front": "Design a multi-user blogging platform using React, Node.js, Express, and MongoDB. Cover the schema, REST API endpoints, and how you would deploy it on AWS to handle traffic spikes.",
+          "back": "Schema: users, posts, comments, likes, tags. Store user references in posts and comments; index post author and createdAt. REST endpoints: /users/auth, /posts CRUD, /posts/:id/comments, /posts/:id/likes, /tags. Deploy on AWS using S3/CloudFront for the React app, EC2 or ECS for the Node API, MongoDB Atlas for the database. Use Elastic Load Balancer, Auto Scaling groups to handle traffic spikes, and CloudFront caching for static assets.",
           "requirementIds": [
-            "REQ-004"
+            "REQ-001",
+            "REQ-002",
+            "REQ-003",
+            "REQ-004",
+            "REQ-005",
+            "REQ-006",
+            "REQ-007"
           ]
         },
         {
           "id": "FC-006",
           "questionId": "Q-006",
-          "front": "Design a RESTful API for a user profile with nested orders. How do you handle pagination, filtering, and status codes?",
-          "back": "Use routes such as GET /users/{userId} and GET /users/{userId}/orders. Support pagination with page and limit or a cursor-based token. Filter orders with query parameters like ?status=shipped&dateFrom=... and sort by ?sort=-createdAt. Return 200 for success, 201 for created, 400 for invalid input, 404 for missing user/order, and 409 for conflicts. Keep nested order endpoints scoped under the user for ownership and authorization.",
-          "requirementIds": [
-            "REQ-005"
-          ]
-        },
-        {
-          "id": "FC-007",
-          "questionId": "Q-007",
-          "front": "Design a scalable URL shortener using Node.js, Express, MongoDB, and AWS. Discuss how you would deploy, cache, and partition data.",
-          "back": "Generate short IDs using base62 or a distributed ID generator. Store mappings in MongoDB with a shard key like shortCode. Use AWS API Gateway and Lambda or ECS to deploy the Node.js/Express app. Use ElastiCache/Redis to cache frequently accessed URLs and reduce MongoDB load. Partition data using a hashed shard key or custom range. For redirects, return 301 for permanent redirects and implement TTLs or expiration for older URLs. Monitor with CloudWatch and auto-scale both services.",
-          "requirementIds": [
-            "REQ-002",
-            "REQ-003",
-            "REQ-004",
-            "REQ-005",
-            "REQ-007"
-          ]
-        },
-        {
-          "id": "FC-008",
-          "questionId": "Q-008",
-          "front": "A MongoDB collection has millions of events. How would you create indexes and design an aggregation pipeline for querying events by user and date range?",
-          "back": "Create a compound index like { userId: 1, date: 1 } to support queries filtering by user and date range. For aggregation, start with a $match stage containing userId and a date range so it uses the index and reduces the document set early. Then use $group for aggregations, $sort for ordering, and $project for fields. Consider sharding on userId or date if the collection outgrows a single machine. Use $expr for complex date expressions only when needed.",
-          "requirementIds": [
-            "REQ-004"
-          ]
-        },
-        {
-          "id": "FC-009",
-          "questionId": "Q-009",
-          "front": "Tell me about a time where you had to make a breaking change to a REST API. How did you communicate it and manage migration?",
-          "back": "I would explain the situation using STAR: the API needed to change because of new requirements. I would communicate by versioning the API, adding a /v2 endpoint, and sending a deprecation notice with a timeline. I would update documentation and reach out to consumers. For migration, I would run both versions, monitor metrics, use feature flags, provide migration guides, and support older clients until the migration reaches full adoption before removing the old endpoint.",
-          "requirementIds": [
-            "REQ-005"
-          ]
-        },
-        {
-          "id": "FC-010",
-          "questionId": "Q-010",
-          "front": "Describe a project where you used React and Node to solve a user problem from start to finish. What was your role and how did you measure success?",
-          "back": "Use STAR: describe the user problem, your role, and the solution. For example, you built a dashboard in React with a Node.js API to help users track orders. Your role may have included requirements gathering, frontend/backend development, and deployment. Measure success by user engagement, task completion rate, reduced load time, or reduced support requests. Be specific about trade-offs and how you validated the solution with real users.",
-          "requirementIds": [
-            "REQ-001",
-            "REQ-002"
-          ]
-        },
-        {
-          "id": "FC-011",
-          "questionId": "Q-011",
-          "front": "How do you use Git to support collaboration? Describe your branching strategy and how you handle merge conflicts.",
-          "back": "I use a branching strategy like GitHub Flow or trunk-based development. Feature branches are created from main, code changes go through pull requests, and the main branch is protected with CI checks. For merge conflicts, I update the branch from main, resolve conflicts locally, run tests, and commit the resolution. Good commit messages, small PRs, and frequent merges reduce conflict complexity.",
+          "front": "Describe your Git branching strategy for a team working on a full-stack JavaScript application. How do you ensure code quality through pull requests and code reviews?",
+          "back": "Use a feature branch workflow: main is always deployable, create a feature branch for each change, open a pull request into main. Require CI checks for linting, tests, and builds before merging. Code review should check readability, test coverage, and security. Keep PRs small, use protected branches, and require at least one approval before merge.",
           "requirementIds": [
             "REQ-008"
           ]
         },
         {
-          "id": "FC-012",
-          "questionId": "Q-012",
-          "front": "MongoDB encourages trying new things and taking bold risks. Tell me about a time you introduced a new technology (e.g., an AWS service) into an existing project and how you handled adoption.",
-          "back": "I would describe a recent project where you introduced a new technology, e.g., moving static assets to AWS CloudFront or adding MongoDB Atlas Search. Explain why you chose that technology, how you prototyped it, and how you convinced stakeholders by measuring performance or cost. I would handle adoption by creating documentation, training teammates, using feature flags, and rolling the change out incrementally. Emphasize risk management, collaboration, and successful results.",
+          "id": "FC-007",
+          "questionId": "Q-007",
+          "front": "How would you use MongoDB's aggregation pipeline in a Node.js endpoint to generate a sales report? What performance pitfalls would you watch for?",
+          "back": "Use $match to filter transactions by date range, $group by day/product/category to calculate sums and counts, $sort to order by revenue, $lookup to join customer or product detail, and $project to shape results. Pitfalls: avoid $unwind unless necessary, keep $match as early as possible, ensure indexes cover the matched fields, and avoid unbounded $sort or $group operations that exceed memory limits.",
           "requirementIds": [
-            "REQ-007"
+            "REQ-004",
+            "REQ-002",
+            "REQ-006"
+          ]
+        },
+        {
+          "id": "FC-008",
+          "questionId": "Q-008",
+          "front": "MongoDB values Make it Matter and Own What You Do. Share an experience where you took ownership of a challenging feature in a React/Node.js project and delivered it successfully.",
+          "back": "Use the STAR method. Describe the Situation, Task, Action, and Result. Emphasize how you took ownership, coordinated with stakeholders, overcame technical challenges, and delivered measurable business impact. Example: led implementation of a real-time dashboard in React with a Node.js API, resolved performance bottlenecks, deployed on schedule, and received positive feedback.",
+          "requirementIds": [
+            "REQ-001",
+            "REQ-002"
           ]
         }
       ],
@@ -323,8 +267,8 @@
           "day": 1,
           "focus": "Interview preparation - Day 1",
           "questionIds": [
-            "Q-007",
-            "Q-001"
+            "Q-005",
+            "Q-002"
           ],
           "durationMinutes": 50
         },
@@ -332,8 +276,8 @@
           "day": 2,
           "focus": "Interview preparation - Day 2",
           "questionIds": [
-            "Q-002",
-            "Q-003"
+            "Q-003",
+            "Q-004"
           ],
           "durationMinutes": 40
         },
@@ -341,37 +285,31 @@
           "day": 3,
           "focus": "Interview preparation - Day 3",
           "questionIds": [
-            "Q-004",
-            "Q-005"
+            "Q-007",
+            "Q-001"
           ],
-          "durationMinutes": 40
+          "durationMinutes": 35
         },
         {
           "day": 4,
           "focus": "Interview preparation - Day 4",
           "questionIds": [
-            "Q-006",
-            "Q-008"
+            "Q-008",
+            "Q-006"
           ],
-          "durationMinutes": 40
+          "durationMinutes": 30
         },
         {
           "day": 5,
           "focus": "Interview preparation - Day 5",
-          "questionIds": [
-            "Q-009",
-            "Q-010"
-          ],
-          "durationMinutes": 40
+          "questionIds": [],
+          "durationMinutes": 0
         },
         {
           "day": 6,
           "focus": "Interview preparation - Day 6",
-          "questionIds": [
-            "Q-012",
-            "Q-011"
-          ],
-          "durationMinutes": 35
+          "questionIds": [],
+          "durationMinutes": 0
         },
         {
           "day": 7,
@@ -419,8 +357,310 @@
   },
   {
     "id": "case-2",
-    "status": "failure",
-    "error": "[LLM_INVALID_RESPONSE] AI service returned an invalid response"
+    "status": "success",
+    "kit": {
+      "source": {
+        "jobDescription": "Frontend Developer responsible for building responsive web applications using React, TypeScript, HTML and CSS. Experience with state management and REST APIs is required.",
+        "companyUrl": "https://react.dev"
+      },
+      "companyBrief": {
+        "overview": "Not available from the provided sources.",
+        "products": [],
+        "industry": "Not available from the provided sources.",
+        "culture": [],
+        "engineering": []
+      },
+      "role": {
+        "title": "Frontend Developer",
+        "requirements": [
+          {
+            "id": "REQ-001",
+            "text": "Building responsive web applications using React, TypeScript, HTML and CSS",
+            "category": "responsibility",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-002",
+            "text": "Experience with React",
+            "category": "skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-003",
+            "text": "Experience with TypeScript",
+            "category": "skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-004",
+            "text": "Experience with HTML",
+            "category": "skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-005",
+            "text": "Experience with CSS",
+            "category": "skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-006",
+            "text": "Experience with state management",
+            "category": "skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-007",
+            "text": "Experience with REST APIs",
+            "category": "skill",
+            "priority": "must"
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "Q-001",
+          "question": "Explain the difference between state and props in React, and give an example of when you would lift state up to a parent component.",
+          "category": "technical",
+          "difficulty": "easy",
+          "requirementIds": [
+            "REQ-002",
+            "REQ-006"
+          ]
+        },
+        {
+          "id": "Q-002",
+          "question": "How do you define a typed React component in TypeScript? Show an interface for props that includes both required and optional fields.",
+          "category": "technical",
+          "difficulty": "easy",
+          "requirementIds": [
+            "REQ-003",
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "Q-003",
+          "question": "What are semantic HTML elements and why are they important? Give an example of using semantic tags in a React component.",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-004",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "Q-004",
+          "question": "Describe how you would make a React component responsive using CSS. Compare techniques like CSS Grid, Flexbox, media queries, and CSS-in-JS.",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-005",
+            "REQ-001"
+          ]
+        },
+        {
+          "id": "Q-005",
+          "question": "When would you choose useReducer over useState for managing state in a React application? Provide a realistic example.",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-006",
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "Q-006",
+          "question": "How do you fetch data from a REST API in React? Discuss handling loading states, errors, and race conditions with async requests.",
+          "category": "technical",
+          "difficulty": "hard",
+          "requirementIds": [
+            "REQ-007",
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "Q-007",
+          "question": "Walk me through a recent project where you built a responsive web application using React and TypeScript. What were the requirements, and how did you structure your components and styling?",
+          "category": "behavioral",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-001",
+            "REQ-002",
+            "REQ-003",
+            "REQ-004",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "Q-008",
+          "question": "Imagine you need to add a new feature to an existing React app that pulls data from a REST API. How would you design the data-fetching layer to keep it maintainable and testable, considering state management and API error handling?",
+          "category": "system-design",
+          "difficulty": "hard",
+          "requirementIds": [
+            "REQ-007",
+            "REQ-006",
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "Q-009",
+          "question": "How do you ensure accessibility (a11y) and semantic correctness when writing HTML and React components? Give specific examples.",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-004",
+            "REQ-001"
+          ]
+        }
+      ],
+      "flashcards": [
+        {
+          "id": "FC-001",
+          "questionId": "Q-001",
+          "front": "Explain the difference between state and props in React, and give an example of when you would lift state up to a parent component.",
+          "back": "Props are read-only data passed from parent to child; state is mutable data owned by the component. Lift state up when multiple children need to share the same state or when a parent needs to coordinate child behavior. Example: a form with two dependent fields or a shared selected item among siblings.",
+          "requirementIds": [
+            "REQ-002",
+            "REQ-006"
+          ]
+        },
+        {
+          "id": "FC-002",
+          "questionId": "Q-002",
+          "front": "How do you define a typed React component in TypeScript? Show an interface for props that includes both required and optional fields.",
+          "back": "Use a function component with typed props: `interface Props { name: string; age?: number; }` then `const MyComponent: React.FC<Props> = ({ name, age }) => ...` or `function MyComponent(props: Props)`. Required fields omit `?`; optional fields use `?`. This gives compile-time validation of props.",
+          "requirementIds": [
+            "REQ-003",
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "FC-003",
+          "questionId": "Q-003",
+          "front": "What are semantic HTML elements and why are they important? Give an example of using semantic tags in a React component.",
+          "back": "Semantic HTML elements clearly describe their meaning, e.g., `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`. They improve accessibility, SEO, and code readability. In React, use them in JSX: `<article><header>Title</header><p>...</p></article>` instead of generic `<div>`s.",
+          "requirementIds": [
+            "REQ-004",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "FC-004",
+          "questionId": "Q-004",
+          "front": "Describe how you would make a React component responsive using CSS. Compare techniques like CSS Grid, Flexbox, media queries, and CSS-in-JS.",
+          "back": "Use a mobile-first approach: CSS Grid for two-dimensional layout, Flexbox for one-dimensional alignment, media queries to adjust breakpoints, and CSS-in-JS for logic-based responsive styling. For example, a card grid can use `repeat(auto-fit, minmax(250px, 1fr))`, while media queries change font sizes or layout. CSS-in-JS can conditionally apply styles based on props.",
+          "requirementIds": [
+            "REQ-005",
+            "REQ-001"
+          ]
+        },
+        {
+          "id": "FC-005",
+          "questionId": "Q-005",
+          "front": "When would you choose useReducer over useState for managing state in a React application? Provide a realistic example.",
+          "back": "Choose useReducer when state transitions are complex, have multiple related fields, or when the next state depends on the previous state in non-trivial ways. Example: a shopping cart with ADD_ITEM, REMOVE_ITEM, UPDATE_QUANTITY actions. useReducer centralizes update logic and makes it testable, while useState is simpler for isolated state like a toggle or input.",
+          "requirementIds": [
+            "REQ-006",
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "FC-006",
+          "questionId": "Q-006",
+          "front": "How do you fetch data from a REST API in React? Discuss handling loading states, errors, and race conditions with async requests.",
+          "back": "Use `useEffect` with `fetch` or a library like Axios. Set loading state, then on success set data and on error set error. Cleanup with AbortController to cancel in-flight requests. Track request id or use `ignore` flag to prevent state updates after unmount and avoid race conditions. Example: `useEffect(() => { const controller = new AbortController(); fetch(url, { signal: controller.signal }).then(...).catch(...); return () => controller.abort(); }, [url]);`",
+          "requirementIds": [
+            "REQ-007",
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "FC-007",
+          "questionId": "Q-007",
+          "front": "Walk me through a recent project where you built a responsive web application using React and TypeScript. What were the requirements, and how did you structure your components and styling?",
+          "back": "Prepare a STAR-style answer: describe the project goal, core requirements (e.g., multi-device layout, accessibility), and how components were organized (container/presentational pattern). Explain styling choices (CSS Modules, Grid, Flexbox, media queries) and how TypeScript ensured type safety. Emphasize process, trade-offs, and the result.",
+          "requirementIds": [
+            "REQ-001",
+            "REQ-002",
+            "REQ-003",
+            "REQ-004",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "FC-008",
+          "questionId": "Q-008",
+          "front": "Imagine you need to add a new feature to an existing React app that pulls data from a REST API. How would you design the data-fetching layer to keep it maintainable and testable, considering state management and API error handling?",
+          "back": "Separate concerns: create an API client module for endpoints, use `useReducer` or React Query/SWR for managing state/caching, and centralize types for API responses. Handle loading and error states consistently, using an error boundary for network errors. Abstract async logic into custom hooks or services so components stay testable with mocks.",
+          "requirementIds": [
+            "REQ-007",
+            "REQ-006",
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "FC-009",
+          "questionId": "Q-009",
+          "front": "How do you ensure accessibility (a11y) and semantic correctness when writing HTML and React components? Give specific examples.",
+          "back": "Use semantic elements (e.g., `<nav>`, `<main>`, `<button>`), add alt attributes, labels for inputs, and role/aria only when necessary. Manage focus and keyboard navigation. In React, use `useId` for ids, avoid divs for clickable elements, and ensure headings hierarchy. Example: `<label htmlFor=\"name\">Name</label><input id=\"name\" type=\"text\" />`.",
+          "requirementIds": [
+            "REQ-004",
+            "REQ-001"
+          ]
+        }
+      ],
+      "schedule": [
+        {
+          "day": 1,
+          "focus": "Interview preparation - Day 1",
+          "questionIds": [
+            "Q-006",
+            "Q-008",
+            "Q-003",
+            "Q-004",
+            "Q-005",
+            "Q-007",
+            "Q-009",
+            "Q-001",
+            "Q-002"
+          ],
+          "durationMinutes": 190
+        }
+      ],
+      "coverage": [
+        {
+          "requirementId": "REQ-001",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-002",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-003",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-004",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-005",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-006",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-007",
+          "covered": true
+        }
+      ],
+      "warnings": [
+        "Company brief generation failed, using fallback values: AI service returned an invalid response"
+      ]
+    }
   },
   {
     "id": "case-3",
@@ -431,29 +671,29 @@
         "companyUrl": "https://www.docker.com"
       },
       "companyBrief": {
-        "overview": "Docker, Inc. is a provider of cloud-native and AI-native application development tools, infrastructure, and services. Trusted by more than 20 million developers, Docker helps development teams and enterprises simplify the complexity of AI-native development with integrated tooling, built-in governance, and security. The company is expanding its role in helping organizations secure and govern agentic workflows.",
+        "overview": "Docker is a company that changed how the world ships software. Trusted by more than 20 million developers, Docker helps development teams and enterprises simplify the complexity of AI-native development with integrated tooling, built-in governance, and security at every stage. The company is expanding from container tooling into AI agent security and governance, emphasizing safe agent execution with isolation, signed components, and runtime policy.",
         "products": [
-          "Docker Sandboxes",
-          "Docker AI Governance",
-          "Docker Hardened Images",
-          "Docker Desktop"
+          "Docker Sandboxes: MicroVM isolation for every agent session, with network and filesystem locked down at runtime.",
+          "Docker AI Governance: One console for sandbox and MCP policy, identity-bound audit logs, and zero per-machine setup.",
+          "Docker Hardened Images: Minimal, signed, continuously patched images and MCP servers with SLSA Level 3 and audit-ready defaults.",
+          "Docker Desktop: How modern applications get built — containers and the full development loop in one place."
         ],
-        "industry": "Cloud-native and AI-native application development tools and infrastructure",
+        "industry": "Cloud and AI-native application development tools, content, and services",
         "culture": [
-          "Humble Confidence: leave egos at the door, extend kindness, seek feedback openly",
-          "Open Collaboration: break down silos, challenge one another respectfully",
-          "Outcome Driven: focus on goals, think critically, pivot and communicate to realign",
-          "Remote-first culture with autonomy, freedom, and flexibility",
-          "Transparency: no spin, no information hoarding",
-          "Appreciation: celebrate contributions and make sure no one feels invisible",
-          "Inclusion and belonging: ERGs for underrepresented genders, DEIB, mental health, caregivers, and neurodivergent employees"
+          "Remote-first with autonomy, freedom, and flexibility; Docker trusts employees to manage work around their lives.",
+          "Humble Confidence: leave egos at the door, extend kindness, and seek feedback openly.",
+          "Open Collaboration: break down silos, connect across teams, and challenge one another respectfully.",
+          "Outcome Driven: maintain focus on goals, think critically about tradeoffs, and pivot when needed.",
+          "Appreciation and inclusion: celebrate contributions, support ERGs, and ensure no one feels invisible.",
+          "No spin, no information hoarding; people do better work when they understand the full picture."
         ],
         "engineering": [
-          "Docker Sandboxes run each agent session inside a dedicated microVM with a private Docker daemon isolated by the VM boundary and no path back to the host.",
-          "Docker built a new VMM from scratch with a single codebase for macOS, Windows, and Linux, providing kernel-level isolation optimized for each OS with zero translation layers.",
-          "Sandboxes deliver VM-grade isolation with fast cold starts and full Docker support, enabling agents to clone repos, install dependencies, run tests, build images, spin up multi-container services, and open pull requests.",
-          "Scoped access is enforced from infrastructure: file access, network policies, and secrets are defined before the agent runs, with credentials injected at runtime outside the MicroVM boundary.",
-          "The same isolation and speed work across every major agent, with one sandbox model across all of them."
+          "Docker Sandboxes run each agent session inside a dedicated microVM with a private Docker daemon isolated by the VM boundary, with no path back to the host.",
+          "The sandbox model provides hardware-boundary isolation: a compromised agent cannot reach the host, other sandboxes, or external environments.",
+          "Docker built a new VMM from scratch for macOS, Windows, and Linux with a single codebase and zero translation layers, giving kernel-level isolation optimized for each OS.",
+          "Agents get full Docker support inside the sandbox — including docker build, docker run, and docker compose — without socket mounting or host-level privileges.",
+          "File access, network policies, and secrets are defined before the agent runs; credentials are injected at runtime and never baked into the environment.",
+          "Sandboxes are designed to be fast enough that developers won't skip isolation, with cold starts that make VM-grade isolation practical for agent workflows."
         ]
       },
       "role": {
@@ -461,37 +701,37 @@
         "requirements": [
           {
             "id": "REQ-001",
-            "text": "Node.js",
+            "text": "Experience with Node.js",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-002",
-            "text": "Express",
+            "text": "Experience with Express",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-003",
-            "text": "PostgreSQL",
+            "text": "Experience with PostgreSQL",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-004",
-            "text": "REST APIs",
+            "text": "Experience with REST APIs",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-005",
-            "text": "authentication",
+            "text": "Experience with authentication",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-006",
-            "text": "Docker",
+            "text": "Experience with Docker",
             "category": "skill",
             "priority": "must"
           },
@@ -506,66 +746,74 @@
       "questions": [
         {
           "id": "Q-001",
-          "question": "Explain how Node.js handles concurrency with an event loop. How would you offload CPU-bound tasks in a REST API?",
-          "category": "technical",
+          "question": "How would you structure a Node.js service with Express routes and PostgreSQL repositories to keep the code testable and maintainable?",
+          "category": "system-design",
           "difficulty": "medium",
           "requirementIds": [
             "REQ-001",
+            "REQ-002",
+            "REQ-003",
             "REQ-004"
           ]
         },
         {
           "id": "Q-002",
-          "question": "In Express, how do you design an async error handling middleware to avoid repetitive try/catch blocks?",
+          "question": "What are the most important security considerations when implementing authentication in a REST API? Walk through password hashing, session handling, and protecting against common attacks.",
           "category": "technical",
           "difficulty": "medium",
           "requirementIds": [
-            "REQ-002"
+            "REQ-005",
+            "REQ-004"
           ]
         },
         {
           "id": "Q-003",
-          "question": "Given a PostgreSQL schema for users, posts, and likes, how would you add indexes and write a query to find the most liked posts in the last month?",
+          "question": "Given an Express API endpoint that returns user data, how would you ensure only authorized users can access their own resources? Provide an example middleware implementation.",
           "category": "technical",
-          "difficulty": "hard",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-002",
+            "REQ-005",
+            "REQ-004"
+          ]
+        },
+        {
+          "id": "Q-004",
+          "question": "How would you design a PostgreSQL schema for an API that tracks agent sessions and audit logs? Include any constraints or indexes you would add.",
+          "category": "system-design",
+          "difficulty": "medium",
           "requirementIds": [
             "REQ-003",
             "REQ-004"
           ]
         },
         {
-          "id": "Q-004",
-          "question": "How would you version and structure a REST API to support filtering, pagination, and sorting without breaking existing clients?",
-          "category": "system-design",
+          "id": "Q-005",
+          "question": "Walk through your approach to building a Docker image for a Node.js application. How would you optimize for build time, image size, and security?",
+          "category": "technical",
           "difficulty": "medium",
           "requirementIds": [
-            "REQ-004"
-          ]
-        },
-        {
-          "id": "Q-005",
-          "question": "Walk through implementing JWT authentication in a Node.js/Express app, including refresh token rotation and revocation.",
-          "category": "technical",
-          "difficulty": "hard",
-          "requirementIds": [
-            "REQ-005",
-            "REQ-002"
+            "REQ-006",
+            "REQ-001"
           ]
         },
         {
           "id": "Q-006",
-          "question": "What security considerations are important when storing passwords and issuing session tokens in a Node.js API?",
-          "category": "technical",
-          "difficulty": "medium",
+          "question": "How would you deploy a containerized Express + PostgreSQL API to a cloud provider? Describe secret management, database migrations, and CI/CD for zero-downtime releases.",
+          "category": "system-design",
+          "difficulty": "hard",
           "requirementIds": [
-            "REQ-005"
+            "REQ-007",
+            "REQ-002",
+            "REQ-003",
+            "REQ-006"
           ]
         },
         {
           "id": "Q-007",
-          "question": "Show how you would write a multi-stage Dockerfile for a Node.js Express app, including steps to reduce image size and harden the runtime.",
-          "category": "technical",
-          "difficulty": "medium",
+          "question": "Docker Sandboxes isolate agent sessions in microVMs. How would you design a sandboxed execution environment for an API that runs untrusted Node.js code? What role does Docker play?",
+          "category": "system-design",
+          "difficulty": "hard",
           "requirementIds": [
             "REQ-006",
             "REQ-001"
@@ -573,51 +821,12 @@
         },
         {
           "id": "Q-008",
-          "question": "Docker Sandboxes provide isolated microVM environments. How would you design a Node.js service that manages the lifecycle of such sandboxes for multi-tenant isolation, using PostgreSQL as the source of truth?",
-          "category": "system-design",
-          "difficulty": "hard",
-          "requirementIds": [
-            "REQ-006",
-            "REQ-003"
-          ]
-        },
-        {
-          "id": "Q-009",
-          "question": "Describe how you would deploy a containerized Node.js/PostgreSQL application to a cloud provider, including handling migrations, secrets, and zero-downtime releases.",
-          "category": "system-design",
-          "difficulty": "hard",
-          "requirementIds": [
-            "REQ-007",
-            "REQ-006",
-            "REQ-003"
-          ]
-        },
-        {
-          "id": "Q-010",
-          "question": "Docker's culture emphasizes autonomy, freedom, flexibility, and remote work. Can you describe a time you managed a complex Node.js project independently and how you communicated progress asynchronously?",
+          "question": "Describe a time you worked on a REST API that had a database performance bottleneck. How did you diagnose it and what did you do to fix it?",
           "category": "behavioral",
           "difficulty": "medium",
           "requirementIds": [
-            "REQ-001"
-          ]
-        },
-        {
-          "id": "Q-011",
-          "question": "Docker is building tools for AI agents with security and governance. How would you monitor and log authentication events in a Node.js API to support audit trails without impacting performance?",
-          "category": "technical",
-          "difficulty": "medium",
-          "requirementIds": [
-            "REQ-005",
+            "REQ-004",
             "REQ-003"
-          ]
-        },
-        {
-          "id": "Q-012",
-          "question": "Tell me about a time you had to quickly learn a new technology or adopt a best practice under time pressure. How does that experience align with Docker's 'fail fast' and continuous improvement virtue?",
-          "category": "company-fit",
-          "difficulty": "easy",
-          "requirementIds": [
-            "REQ-007"
           ]
         }
       ],
@@ -625,65 +834,73 @@
         {
           "id": "FC-001",
           "questionId": "Q-001",
-          "front": "Explain how Node.js handles concurrency with an event loop. How would you offload CPU-bound tasks in a REST API?",
-          "back": "Node.js uses a single-threaded event loop for non-blocking I/O, while libuv delegates I/O to a thread pool. For CPU-bound tasks, avoid blocking the event loop: offload with worker_threads, child processes, or a job queue (e.g., BullMQ). In a REST API, keep response latency low by sending heavy work to background workers.",
+          "front": "How would you structure a Node.js service with Express routes and PostgreSQL repositories to keep the code testable and maintainable?",
+          "back": "Use a layered architecture: Express routes call controllers, controllers delegate to services, and services use repositories for PostgreSQL data access. Keep routes thin, put business logic in services, and make repositories depend on database interfaces/dependency injection so they can be mocked in tests. Separate configuration, validation, middleware, and models to improve maintainability.",
           "requirementIds": [
             "REQ-001",
+            "REQ-002",
+            "REQ-003",
             "REQ-004"
           ]
         },
         {
           "id": "FC-002",
           "questionId": "Q-002",
-          "front": "In Express, how do you design an async error handling middleware to avoid repetitive try/catch blocks?",
-          "back": "Wrap async route handlers in a helper like asyncHandler(fn) that catches rejected promises and calls next(err). Then define an error-handling middleware with the signature (err, req, res, next) that logs the error and returns a consistent JSON response. This centralizes error handling and eliminates repetitive try/catch blocks.",
+          "front": "What are the most important security considerations when implementing authentication in a REST API? Walk through password hashing, session handling, and protecting against common attacks.",
+          "back": "Use a strong password hashing algorithm such as bcrypt or argon2 with per-user salts; never store plaintext or reversible passwords. For sessions, use secure, httpOnly cookies for server-side sessions or signed JWTs with short expiration and proper refresh. Protect against common attacks with HTTPS, rate limiting, input validation, parameterized SQL queries, authorization checks, security headers, CORS configuration, CSRF protection, and session fixation mitigations.",
           "requirementIds": [
-            "REQ-002"
+            "REQ-005",
+            "REQ-004"
           ]
         },
         {
           "id": "FC-003",
           "questionId": "Q-003",
-          "front": "Given a PostgreSQL schema for users, posts, and likes, how would you add indexes and write a query to find the most liked posts in the last month?",
-          "back": "Add a composite index on likes(post_id, created_at) and an index on likes.created_at if needed. Query: SELECT p.*, COUNT(l.id) AS like_count FROM posts p JOIN likes l ON l.post_id = p.id WHERE l.created_at >= NOW() - INTERVAL '1 month' GROUP BY p.id ORDER BY like_count DESC LIMIT 10; The composite index supports both the join and the date filter, improving performance.",
+          "front": "Given an Express API endpoint that returns user data, how would you ensure only authorized users can access their own resources? Provide an example middleware implementation.",
+          "back": "First add authentication middleware that verifies the session/JWT and sets req.user. Then add an authorization/ownership check before returning the resource. Example middleware: function requireOwnership(req, res, next) { if (!req.user || req.user.id !== req.params.userId) { return res.status(403).json({ error: 'Forbidden' }); } next(); } Use this middleware on the route and ensure you never trust userId from the client without validating it.",
           "requirementIds": [
-            "REQ-003",
+            "REQ-002",
+            "REQ-005",
             "REQ-004"
           ]
         },
         {
           "id": "FC-004",
           "questionId": "Q-004",
-          "front": "How would you version and structure a REST API to support filtering, pagination, and sorting without breaking existing clients?",
-          "back": "Version the API explicitly, e.g., /api/v1, and accept filters via query params such as ?filter[name]=value. Support pagination with page/page_size or cursor; support sorting with whitelisted sort fields. Keep default responses stable, add fields rather than changing existing ones, and deprecate old versions gradually. Document changes and give clients migration time.",
+          "front": "How would you design a PostgreSQL schema for an API that tracks agent sessions and audit logs? Include any constraints or indexes you would add.",
+          "back": "Create normalized tables: agents (id, name, created_at, unique constraints), sessions (id, agent_id, started_at, ended_at, status, metadata) with a foreign key to agents, and audit_logs (id, actor_type, actor_id, action, resource_type, resource_id, occurred_at, request_id). Add indexes on sessions.agent_id and sessions.started_at, and on audit_logs.actor_id, resource_type, resource_id, and occurred_at. Use CHECK constraints for status values and ensure timestamps are valid with NOT NULL and CHECK constraints. Consider partial indexes for active sessions.",
           "requirementIds": [
+            "REQ-003",
             "REQ-004"
           ]
         },
         {
           "id": "FC-005",
           "questionId": "Q-005",
-          "front": "Walk through implementing JWT authentication in a Node.js/Express app, including refresh token rotation and revocation.",
-          "back": "Sign JWT access tokens with a secret or public/private key and verify them in middleware on protected routes. Store refresh tokens hashed in the database. On refresh, verify the refresh token, rotate it by issuing a new one and invalidating the old token, and detect reuse if an old token is used. Revoke refresh tokens by marking them invalid or removing them from the database; maintain a denylist for access tokens if immediate revocation is needed.",
+          "front": "Walk through your approach to building a Docker image for a Node.js application. How would you optimize for build time, image size, and security?",
+          "back": "Use a multi-stage Dockerfile: a build stage with a full Node image installs dependencies and runs tests, then a runtime stage using a slim/alpine base copies only production dependencies and application code. Optimize build time by ordering layers and using dependency caching. Optimize image size by using npm ci --omit=dev and pruning dev files. Improve security by running as a non-root user, using read-only filesystem, setting NODE_ENV=production, adding healthchecks, scanning for CVEs, and using pinned base image digests.",
           "requirementIds": [
-            "REQ-005",
-            "REQ-002"
+            "REQ-006",
+            "REQ-001"
           ]
         },
         {
           "id": "FC-006",
           "questionId": "Q-006",
-          "front": "What security considerations are important when storing passwords and issuing session tokens in a Node.js API?",
-          "back": "Store passwords using strong one-way hashing algorithms like bcrypt, scrypt, or argon2 with a unique salt per user. For session tokens, use short-lived JWTs or random tokens stored hashed in the database. Always use HttpOnly, Secure, SameSite cookies or securely store client-side tokens. Implement rate limiting, brute-force protection, and never log tokens or credentials.",
+          "front": "How would you deploy a containerized Express + PostgreSQL API to a cloud provider? Describe secret management, database migrations, and CI/CD for zero-downtime releases.",
+          "back": "Use a managed container service (e.g., ECS, EKS, Cloud Run) and a managed PostgreSQL instance. Store secrets in a cloud secret manager (AWS Secrets Manager, GCP Secret Manager, etc.) and inject them as environment variables at runtime. Run migrations before deploying the new app version, using a separate migration job and backward-compatible changes. Use CI/CD: build and test the image, push to a registry, run migrations, then perform rolling/blue-green deployment with health checks. Keep the previous version for rollback.",
           "requirementIds": [
-            "REQ-005"
+            "REQ-007",
+            "REQ-002",
+            "REQ-003",
+            "REQ-006"
           ]
         },
         {
           "id": "FC-007",
           "questionId": "Q-007",
-          "front": "Show how you would write a multi-stage Dockerfile for a Node.js Express app, including steps to reduce image size and harden the runtime.",
-          "back": "Use a multi-stage build: first stage builds/runs npm install with node:lts-alpine. Final stage uses node:20-slim or distroless, copies production node_modules and app code, sets NODE_ENV=production, runs as a non-root user, exposes the app port, and adds HEALTHCHECK. Remove build dependencies and dev dependencies to reduce size; use npm ci --only=production.",
+          "front": "Docker Sandboxes isolate agent sessions in microVMs. How would you design a sandboxed execution environment for an API that runs untrusted Node.js code? What role does Docker play?",
+          "back": "Run each untrusted Node.js workload in a short-lived, isolated container/microVM with strict resource limits, read-only root filesystem, no unnecessary capabilities, seccomp/AppArmor profiles, and egress network restrictions. Use Docker as the container runtime to build images, enforce resources, and provide a consistent isolation layer for each agent session. Add an API gateway/session manager that validates code, schedules the Docker container, streams logs/proxy traffic, and destroys the sandbox after timeout or completion. For stronger isolation, use Docker-in-microVM with a minimalist base image and ephemeral per-session volumes.",
           "requirementIds": [
             "REQ-006",
             "REQ-001"
@@ -692,50 +909,11 @@
         {
           "id": "FC-008",
           "questionId": "Q-008",
-          "front": "Docker Sandboxes provide isolated microVM environments. How would you design a Node.js service that manages the lifecycle of such sandboxes for multi-tenant isolation, using PostgreSQL as the source of truth?",
-          "back": "Store sandbox records in PostgreSQL with states like creating, running, stopping, and deleted. The Node.js service receives desired state, updates the database transactionally, and communicates with the sandbox orchestrator (e.g., Docker/containers/microVMs). Use polling or webhooks to reconcile actual state with desired state. Implement cleanup jobs for stale sandboxes, enforce resource limits per tenant, and use per-sandbox networking to maintain isolation.",
+          "front": "Describe a time you worked on a REST API that had a database performance bottleneck. How did you diagnose it and what did you do to fix it?",
+          "back": "Use STAR: identify the symptom, diagnose, fix, quantify. Mention using logging/APM tools and EXPLAIN ANALYZE to find slow queries, N+1 queries, missing indexes, and pagination issues. Describe adding indexes, optimizing joins, introducing caching, and paginating results. Emphasize measurable result, such as reducing p95 latency or query time by a specific percentage.",
           "requirementIds": [
-            "REQ-006",
+            "REQ-004",
             "REQ-003"
-          ]
-        },
-        {
-          "id": "FC-009",
-          "questionId": "Q-009",
-          "front": "Describe how you would deploy a containerized Node.js/PostgreSQL application to a cloud provider, including handling migrations, secrets, and zero-downtime releases.",
-          "back": "Build and push the container to a registry, then deploy to a managed service like ECS, EKS, or Cloud Run with a managed PostgreSQL database. Run migrations as a job before the new app version is exposed; use compatibility-first migrations to avoid breaking old clients. Store secrets in a secret manager, not in images. Achieve zero downtime with rolling or blue/green deployments, health checks, auto-healing, and keeping the DB migrations forward-compatible.",
-          "requirementIds": [
-            "REQ-007",
-            "REQ-006",
-            "REQ-003"
-          ]
-        },
-        {
-          "id": "FC-010",
-          "questionId": "Q-010",
-          "front": "Docker's culture emphasizes autonomy, freedom, flexibility, and remote work. Can you describe a time you managed a complex Node.js project independently and how you communicated progress asynchronously?",
-          "back": "I led a Node.js microservice refresh with minimal supervision by breaking it into milestones and documenting decisions in PRs and ADRs. I communicated async through daily concise status updates on Slack, recorded Loom videos for tricky architectural decisions, and used project boards so stakeholders always knew progress. This kept the work transparent and gave me autonomy to unblock myself.",
-          "requirementIds": [
-            "REQ-001"
-          ]
-        },
-        {
-          "id": "FC-011",
-          "questionId": "Q-011",
-          "front": "Docker is building tools for AI agents with security and governance. How would you monitor and log authentication events in a Node.js API to support audit trails without impacting performance?",
-          "back": "Emit structured JSON audit logs for key events: login success/failure, token refresh, logout, and permission changes. Add request IDs and user IDs for correlation. Avoid writing synchronously in the request path: enqueue logs to a background queue or an async logger and batch-insert into storage. Add indexes on (user_id, created_at) and use partitioned tables to keep query performance high.",
-          "requirementIds": [
-            "REQ-005",
-            "REQ-003"
-          ]
-        },
-        {
-          "id": "FC-012",
-          "questionId": "Q-012",
-          "front": "Tell me about a time you had to quickly learn a new technology or adopt a best practice under time pressure. How does that experience align with Docker's 'fail fast' and continuous improvement virtue?",
-          "back": "I once had to integrate a message queue into a Node.js service within one sprint. I built a small proof-of-concept first, shared it for feedback, and iterated quickly. Some approaches failed early, but that let me converge on a robust design. This mirrors Docker's fail-fast mindset: small experiments, fast feedback, and constantly improving based on what you learn.",
-          "requirementIds": [
-            "REQ-007"
           ]
         }
       ],
@@ -744,7 +922,7 @@
           "day": 1,
           "focus": "Interview preparation - Day 1",
           "questionIds": [
-            "Q-003"
+            "Q-006"
           ],
           "durationMinutes": 30
         },
@@ -752,7 +930,7 @@
           "day": 2,
           "focus": "Interview preparation - Day 2",
           "questionIds": [
-            "Q-005"
+            "Q-007"
           ],
           "durationMinutes": 30
         },
@@ -760,23 +938,23 @@
           "day": 3,
           "focus": "Interview preparation - Day 3",
           "questionIds": [
-            "Q-008"
+            "Q-001"
           ],
-          "durationMinutes": 30
+          "durationMinutes": 20
         },
         {
           "day": 4,
           "focus": "Interview preparation - Day 4",
           "questionIds": [
-            "Q-009"
+            "Q-002"
           ],
-          "durationMinutes": 30
+          "durationMinutes": 20
         },
         {
           "day": 5,
           "focus": "Interview preparation - Day 5",
           "questionIds": [
-            "Q-001"
+            "Q-003"
           ],
           "durationMinutes": 20
         },
@@ -784,7 +962,7 @@
           "day": 6,
           "focus": "Interview preparation - Day 6",
           "questionIds": [
-            "Q-002"
+            "Q-004"
           ],
           "durationMinutes": 20
         },
@@ -792,7 +970,7 @@
           "day": 7,
           "focus": "Interview preparation - Day 7",
           "questionIds": [
-            "Q-004"
+            "Q-005"
           ],
           "durationMinutes": 20
         },
@@ -800,41 +978,33 @@
           "day": 8,
           "focus": "Interview preparation - Day 8",
           "questionIds": [
-            "Q-006"
+            "Q-008"
           ],
           "durationMinutes": 20
         },
         {
           "day": 9,
           "focus": "Interview preparation - Day 9",
-          "questionIds": [
-            "Q-007"
-          ],
-          "durationMinutes": 20
+          "questionIds": [],
+          "durationMinutes": 0
         },
         {
           "day": 10,
           "focus": "Interview preparation - Day 10",
-          "questionIds": [
-            "Q-010"
-          ],
-          "durationMinutes": 20
+          "questionIds": [],
+          "durationMinutes": 0
         },
         {
           "day": 11,
           "focus": "Interview preparation - Day 11",
-          "questionIds": [
-            "Q-011"
-          ],
-          "durationMinutes": 20
+          "questionIds": [],
+          "durationMinutes": 0
         },
         {
           "day": 12,
           "focus": "Interview preparation - Day 12",
-          "questionIds": [
-            "Q-012"
-          ],
-          "durationMinutes": 15
+          "questionIds": [],
+          "durationMinutes": 0
         },
         {
           "day": 13,
@@ -884,8 +1054,602 @@
   },
   {
     "id": "case-4",
-    "status": "failure",
-    "error": "[LLM_INVALID_RESPONSE] AI service returned an invalid response: Question 4 references unknown requirement RE Q-004, Question 5 references unknown requirement RE Q-004"
+    "status": "success",
+    "kit": {
+      "source": {
+        "jobDescription": "Software Engineer with JavaScript, React, Node.js and MongoDB skills. Strong problem solving, communication and teamwork abilities required.",
+        "companyUrl": "https://nodejs.org"
+      },
+      "companyBrief": {
+        "overview": "Node.js is an open-source, cross-platform JavaScript runtime built on Chrome's V8 JavaScript engine, designed for building scalable network applications. Used by millions worldwide, it is a nonprofit project founded in 2009 and headquartered in San Francisco, CA, with support from the OpenJS Foundation and ecosystem partners.",
+        "products": [
+          "Node.js runtime"
+        ],
+        "industry": "Software Development",
+        "culture": [
+          "Open source and community-driven, with contributions through official GitHub organizations (nodejs, pkgjs)",
+          "Maintained as a nonprofit project under the OpenJS Foundation",
+          "Encourages contribution through collaboration summits, events, and a Code of Conduct",
+          "Emphasizes security, documentation, testing, and ecosystem sustainability"
+        ],
+        "engineering": [
+          "Built on Chrome's V8 JavaScript engine",
+          "Asynchronous and event-driven; uses an event loop with non-blocking I/O",
+          "Designed for scalable network applications, with HTTP as a first-class, low-latency, streaming protocol",
+          "Provides worker_threads for multi-core concurrency",
+          "Includes built-in modules for HTTP servers, node:test, crypto/hashing, streams, and file I/O",
+          "Follows predictable major releases with LTS versions, an End-of-Life policy, and commercial support options"
+        ]
+      },
+      "role": {
+        "title": "Software Engineer",
+        "requirements": [
+          {
+            "id": "REQ-001",
+            "text": "JavaScript skills",
+            "category": "technical_skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-002",
+            "text": "React skills",
+            "category": "technical_skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-003",
+            "text": "Node.js skills",
+            "category": "technical_skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-004",
+            "text": "MongoDB skills",
+            "category": "technical_skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-005",
+            "text": "Strong problem solving abilities",
+            "category": "soft_skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-006",
+            "text": "Strong communication abilities",
+            "category": "soft_skill",
+            "priority": "must"
+          },
+          {
+            "id": "REQ-007",
+            "text": "Strong teamwork abilities",
+            "category": "soft_skill",
+            "priority": "must"
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "Q-001",
+          "question": "Explain how the JavaScript event loop handles asynchronous callbacks. How does Node.js use non-blocking I/O to handle many concurrent connections?",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-001",
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "Q-002",
+          "question": "What are closures in JavaScript? Provide an example where closures are useful inside a React component, and any pitfalls you should avoid.",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-001",
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "Q-003",
+          "question": "What is the difference between useMemo and useCallback? When would you choose one over the other in a React application?",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "Q-004",
+          "question": "How would you diagnose and fix performance problems in a React app that re-renders too often? Walk through your debugging process.",
+          "category": "technical",
+          "difficulty": "hard",
+          "requirementIds": [
+            "REQ-002",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "Q-005",
+          "question": "Node.js is designed as an asynchronous, event-driven runtime. How does a single-threaded event loop handle concurrent requests without blocking? What are the trade-offs?",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "Q-006",
+          "question": "When and why would you use worker_threads in Node.js? Give an example of a workload that would benefit from them.",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "Q-007",
+          "question": "Write a MongoDB aggregation pipeline to group orders by customer and return the total order amount for customers who have spent more than $1,000.",
+          "category": "technical",
+          "difficulty": "hard",
+          "requirementIds": [
+            "REQ-004"
+          ]
+        },
+        {
+          "id": "Q-008",
+          "question": "How do indexes work in MongoDB? How would you design an index for a query that filters by status and sorts by createdAt?",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-004"
+          ]
+        },
+        {
+          "id": "Q-009",
+          "question": "Design a URL shortener service using Node.js and MongoDB. Cover the API, data model, and how you would scale it horizontally.",
+          "category": "system-design",
+          "difficulty": "hard",
+          "requirementIds": [
+            "REQ-003",
+            "REQ-004",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "Q-010",
+          "question": "An API you maintain is suddenly responding slowly. Describe your step-by-step approach to identify the bottleneck and fix it, including any tools you would use.",
+          "category": "technical",
+          "difficulty": "hard",
+          "requirementIds": [
+            "REQ-003",
+            "REQ-004",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "Q-011",
+          "question": "Tell me about a time you had to debug a critical production issue under time pressure. How did you communicate with your team and keep everyone aligned?",
+          "category": "behavioral",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-005",
+            "REQ-006",
+            "REQ-007"
+          ]
+        },
+        {
+          "id": "Q-012",
+          "question": "Describe a situation where you disagreed with a teammate on a technical approach. How did you handle it, and what was the outcome?",
+          "category": "behavioral",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-006",
+            "REQ-007"
+          ]
+        },
+        {
+          "id": "Q-013",
+          "question": "Node.js has a large open-source community and relies on maintainers and contributors. How would you encourage knowledge sharing and collaboration within a development team?",
+          "category": "company-fit",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-006",
+            "REQ-007"
+          ]
+        },
+        {
+          "id": "Q-014",
+          "question": "Node.js emphasizes security releases and LTS/EOL support. How do you stay informed about security vulnerabilities and plan dependency upgrades in your projects?",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-003",
+            "REQ-005"
+          ]
+        }
+      ],
+      "flashcards": [
+        {
+          "id": "FC-001",
+          "questionId": "Q-001",
+          "front": "Explain how the JavaScript event loop handles asynchronous callbacks. How does Node.js use non-blocking I/O to handle many concurrent connections?",
+          "back": "The event loop runs continuously and processes callbacks from phases: timers, pending I/O, idle/prepare, poll, check, and close callbacks. Microtasks like Promise callbacks and process.nextTick are handled between phases. Node.js uses non-blocking I/O by delegating I/O operations to libuv; the main thread never waits for a slow operation. Instead, the operation is registered and its callback is queued when complete, allowing the single thread to handle many concurrent connections efficiently.",
+          "requirementIds": [
+            "REQ-001",
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "FC-002",
+          "questionId": "Q-002",
+          "front": "What are closures in JavaScript? Provide an example where closures are useful inside a React component, and any pitfalls you should avoid.",
+          "back": "A closure is a function that remembers the variables from its lexical scope even after that scope has exited. In React, closures are useful inside useEffect or event handlers when you need to capture the current props/state, or in custom hooks to maintain values. Pitfalls: stale closures when depending on old state/props, and memory leaks if closures retain unnecessary references. Use refs or correct dependency arrays to avoid stale values.",
+          "requirementIds": [
+            "REQ-001",
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "FC-003",
+          "questionId": "Q-003",
+          "front": "What is the difference between useMemo and useCallback? When would you choose one over the other in a React application?",
+          "back": "useMemo caches a computed value and only recalculates it when dependencies change. useCallback caches a function reference and only changes it when dependencies change. Choose useMemo for expensive calculations that should not run every render. Choose useCallback when passing stable callbacks to memoized child components to prevent unnecessary re-renders. Avoid overusing both; not every value or function needs memoization.",
+          "requirementIds": [
+            "REQ-002"
+          ]
+        },
+        {
+          "id": "FC-004",
+          "questionId": "Q-004",
+          "front": "How would you diagnose and fix performance problems in a React app that re-renders too often? Walk through your debugging process.",
+          "back": "First reproduce the issue and use React DevTools Profiler to identify which components render, why, and how often. Check for state updates in parent components, missing React.memo, unstable props/objects, and context changes. Check if useMemo/useCallback are needed or if state can be colocated. Fix by moving state down, splitting contexts, memoizing components, or using selectors. Finally, verify with the profiler and measure the improvement.",
+          "requirementIds": [
+            "REQ-002",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "FC-005",
+          "questionId": "Q-005",
+          "front": "Node.js is designed as an asynchronous, event-driven runtime. How does a single-threaded event loop handle concurrent requests without blocking? What are the trade-offs?",
+          "back": "The event loop handles concurrency by never blocking on I/O: it initiates asynchronous operations, lets the OS/libuv track them, and processes callbacks when the operations complete. This allows a single thread to serve many connections. Trade-offs: CPU-bound code blocks the event loop, making all other requests wait; also, one unhandled exception can crash the process. Use worker_threads for CPU-heavy work and child processes/clusters for isolation and scaling.",
+          "requirementIds": [
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "FC-006",
+          "questionId": "Q-006",
+          "front": "When and why would you use worker_threads in Node.js? Give an example of a workload that would benefit from them.",
+          "back": "worker_threads are used for CPU-intensive JavaScript workloads to parallelize work without blocking the event loop. They run on separate threads with their own event loops and communicate via message passing. Examples include image processing, video encoding, PDF generation, large data transformations, or complex cryptographic hashing. Use worker_threads when the work is synchronous and CPU-bound; use plain async I/O for I/O-bound tasks.",
+          "requirementIds": [
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "FC-007",
+          "questionId": "Q-007",
+          "front": "Write a MongoDB aggregation pipeline to group orders by customer and return the total order amount for customers who have spent more than $1,000.",
+          "back": "Use $group to sum the total amount per customer, then $match to filter customers over 1000. Example: db.orders.aggregate([{ $group: { _id: '$customerId', totalAmount: { $sum: '$amount' } } }, { $match: { totalAmount: { $gt: 1000 } } }, { $sort: { totalAmount: -1 } }]). If the field is named 'customer', replace '_id' accordingly.",
+          "requirementIds": [
+            "REQ-004"
+          ]
+        },
+        {
+          "id": "FC-008",
+          "questionId": "Q-008",
+          "front": "How do indexes work in MongoDB? How would you design an index for a query that filters by status and sorts by createdAt?",
+          "back": "Indexes in MongoDB are B-tree structures that store a small copy of the indexed fields sorted by their values, allowing the database to match and sort without scanning every document. For a query filtering on status and sorting by createdAt, create a compound index: db.orders.createIndex({ status: 1, createdAt: -1 }). The equality field should be first, and the sort field second; the sort direction should match the query sort order or support reverse scans.",
+          "requirementIds": [
+            "REQ-004"
+          ]
+        },
+        {
+          "id": "FC-009",
+          "questionId": "Q-009",
+          "front": "Design a URL shortener service using Node.js and MongoDB. Cover the API, data model, and how you would scale it horizontally.",
+          "back": "API: POST /shorten { longUrl } returns { shortCode }; GET /:shortCode redirects to the original URL. Data model: URLs collection with _id, longUrl, shortCode indexed/unique, createdAt, clicks; maybe TTL index for expiration. Use base62 or nanoid for short codes. To scale horizontally: run stateless Node instances behind a load balancer, share MongoDB as a distributed/clustered store, cache popular mappings in Redis, and use CDN or short-link redirects. Add rate limiting, analytics, and health checks.",
+          "requirementIds": [
+            "REQ-003",
+            "REQ-004",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "FC-010",
+          "questionId": "Q-010",
+          "front": "An API you maintain is suddenly responding slowly. Describe your step-by-step approach to identify the bottleneck and fix it, including any tools you would use.",
+          "back": "Start by looking at alerts, health checks, and recent deploys. Use APM (Datadog, New Relic), logs, and metrics to identify latency at each layer: load balancer, API, database, and external services. Check Node.js event loop delay, memory/CPU, and open sockets. Use the profiler and slow-query logs to find DB issues, add indexes, optimize queries, or add caching. Apply the smallest fix, verify with load testing, and roll back if needed.",
+          "requirementIds": [
+            "REQ-003",
+            "REQ-004",
+            "REQ-005"
+          ]
+        },
+        {
+          "id": "FC-011",
+          "questionId": "Q-011",
+          "front": "Tell me about a time you had to debug a critical production issue under time pressure. How did you communicate with your team and keep everyone aligned?",
+          "back": "Use the STAR method: describe the situation, and how you remained calm and focused on impact. You would triage the issue, roll back or apply a hotfix if possible, and continuously share updates in a team channel or war room. Aligned the team by assigning roles, using a shared timeline, and keeping stakeholders informed. After the incident, led a blameless postmortem to identify root cause and preventive actions.",
+          "requirementIds": [
+            "REQ-005",
+            "REQ-006",
+            "REQ-007"
+          ]
+        },
+        {
+          "id": "FC-012",
+          "questionId": "Q-012",
+          "front": "Describe a situation where you disagreed with a teammate on a technical approach. How did you handle it, and what was the outcome?",
+          "back": "Pick a real example where you listened first, then stated your concerns with data or evidence. Propose trade-offs, prototype, or discuss alternatives to reach the best decision. The outcome should show collaboration, respect for the teammate, and a solution the team supported. Emphasize that the disagreement was about the approach, not the person.",
+          "requirementIds": [
+            "REQ-006",
+            "REQ-007"
+          ]
+        },
+        {
+          "id": "FC-013",
+          "questionId": "Q-013",
+          "front": "Node.js has a large open-source community and relies on maintainers and contributors. How would you encourage knowledge sharing and collaboration within a development team?",
+          "back": "Encourage pair programming, code reviews, and RFCs or design documents. Organize lunch-and-learns, internal talks, or demos where engineers can share Node.js patterns, tools, and lessons learned. Promote documenting decisions and typical solutions in a team wiki. Create a supportive environment where asking questions and contributing to open source or internal libraries feels safe. Lead by example and give credit generously.",
+          "requirementIds": [
+            "REQ-006",
+            "REQ-007"
+          ]
+        },
+        {
+          "id": "FC-014",
+          "questionId": "Q-014",
+          "front": "Node.js emphasizes security releases and LTS/EOL support. How do you stay informed about security vulnerabilities and plan dependency upgrades in your projects?",
+          "back": "Use tools like npm audit, npm outdated, Snyk, or Renovate/Dependabot to detect vulnerable dependencies automatically. Monitor Node.js releases and the security announcement mailing list so you know when to upgrade to a patched version. Maintain a dependency upgrade policy: review breaking changes, run tests, use semantic versioning, and schedule upgrades. Prefer LTS versions in production and plan migration before EOL.",
+          "requirementIds": [
+            "REQ-003",
+            "REQ-005"
+          ]
+        }
+      ],
+      "schedule": [
+        {
+          "day": 1,
+          "focus": "Interview preparation - Day 1",
+          "questionIds": [
+            "Q-004"
+          ],
+          "durationMinutes": 30
+        },
+        {
+          "day": 2,
+          "focus": "Interview preparation - Day 2",
+          "questionIds": [
+            "Q-007"
+          ],
+          "durationMinutes": 30
+        },
+        {
+          "day": 3,
+          "focus": "Interview preparation - Day 3",
+          "questionIds": [
+            "Q-009"
+          ],
+          "durationMinutes": 30
+        },
+        {
+          "day": 4,
+          "focus": "Interview preparation - Day 4",
+          "questionIds": [
+            "Q-010"
+          ],
+          "durationMinutes": 30
+        },
+        {
+          "day": 5,
+          "focus": "Interview preparation - Day 5",
+          "questionIds": [
+            "Q-001"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 6,
+          "focus": "Interview preparation - Day 6",
+          "questionIds": [
+            "Q-002"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 7,
+          "focus": "Interview preparation - Day 7",
+          "questionIds": [
+            "Q-003"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 8,
+          "focus": "Interview preparation - Day 8",
+          "questionIds": [
+            "Q-005"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 9,
+          "focus": "Interview preparation - Day 9",
+          "questionIds": [
+            "Q-006"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 10,
+          "focus": "Interview preparation - Day 10",
+          "questionIds": [
+            "Q-008"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 11,
+          "focus": "Interview preparation - Day 11",
+          "questionIds": [
+            "Q-011"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 12,
+          "focus": "Interview preparation - Day 12",
+          "questionIds": [
+            "Q-012"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 13,
+          "focus": "Interview preparation - Day 13",
+          "questionIds": [
+            "Q-013"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 14,
+          "focus": "Interview preparation - Day 14",
+          "questionIds": [
+            "Q-014"
+          ],
+          "durationMinutes": 20
+        },
+        {
+          "day": 15,
+          "focus": "Interview preparation - Day 15",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 16,
+          "focus": "Interview preparation - Day 16",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 17,
+          "focus": "Interview preparation - Day 17",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 18,
+          "focus": "Interview preparation - Day 18",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 19,
+          "focus": "Interview preparation - Day 19",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 20,
+          "focus": "Interview preparation - Day 20",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 21,
+          "focus": "Interview preparation - Day 21",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 22,
+          "focus": "Interview preparation - Day 22",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 23,
+          "focus": "Interview preparation - Day 23",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 24,
+          "focus": "Interview preparation - Day 24",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 25,
+          "focus": "Interview preparation - Day 25",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 26,
+          "focus": "Interview preparation - Day 26",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 27,
+          "focus": "Interview preparation - Day 27",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 28,
+          "focus": "Interview preparation - Day 28",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 29,
+          "focus": "Interview preparation - Day 29",
+          "questionIds": [],
+          "durationMinutes": 0
+        },
+        {
+          "day": 30,
+          "focus": "Interview preparation - Day 30",
+          "questionIds": [],
+          "durationMinutes": 0
+        }
+      ],
+      "coverage": [
+        {
+          "requirementId": "REQ-001",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-002",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-003",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-004",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-005",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-006",
+          "covered": true
+        },
+        {
+          "requirementId": "REQ-007",
+          "covered": true
+        }
+      ],
+      "warnings": []
+    }
   },
   {
     "id": "case-5",
@@ -896,30 +1660,31 @@
         "companyUrl": "https://aws.amazon.com"
       },
       "companyBrief": {
-        "overview": "AWS is a comprehensive cloud platform providing over 240 services, with the most extensive global infrastructure spanning 124 Availability Zones across 39 Geographic Regions. It is recognized as a leader in cloud infrastructure and offers a broad portfolio of cloud and AI capabilities designed to help organizations build, scale, and transform.",
+        "overview": "Amazon Web Services (AWS) is Amazon's cloud and AI platform, offering an unmatched portfolio of over 240 comprehensive services. It serves startups, small businesses, and enterprises, and describes itself as the most secure, reliable, and extensive global cloud infrastructure. AWS spans 124 Availability Zones within 39 geographic regions, with additional regions and zones planned. AWS has been named a Leader in the 2025 Gartner Magic Quadrant for Strategic Cloud Platform Services for the 15th consecutive year.",
         "products": [
-          "Amazon Bedrock",
           "Amazon Quick",
+          "Amazon Bedrock",
+          "Amazon Connect",
           "Amazon CloudFront",
           "AWS Outposts",
           "AWS Wavelength",
           "AWS Dedicated Local Zones",
-          "Amazon Connect"
+          "Amazon S3",
+          "Amazon EC2"
         ],
-        "industry": "Cloud Computing / Public Cloud Infrastructure",
+        "industry": "Cloud computing and artificial intelligence",
         "culture": [
-          "Largest global community of innovators",
-          "Focus on innovation and invention",
-          "Agile and responsive",
-          "Most secure and reliable infrastructure",
-          "Customer-centric with pay-as-you-go model"
+          "Emphasizes helping organizations of all sizes, from startups to enterprises, use cloud and AI to transform and scale.",
+          "Positions AWS as the largest global community of innovators and highlights 20 years of powering innovation.",
+          "Focuses on customer success stories across industries such as manufacturing, travel, healthcare, financial services, and telecommunications.",
+          "Places strong emphasis on security, reliability, and global infrastructure as key differentiators."
         ],
         "engineering": [
-          "Build on the most secure, reliable, and extensive global cloud infrastructure",
-          "Work with over 240 comprehensive services",
-          "Opportunities across AI, machine learning, cybersecurity, and more",
-          "Scalable infrastructure with 124 Availability Zones and 39 Regions",
-          "Focus on performance, security, reliability, and scale"
+          "Build on the most secure, reliable, and extensive global cloud infrastructure, with 124 Availability Zones across 39 regions and more planned.",
+          "Offers over 240 cloud and AI services, including compute, storage, databases, analytics, security, and machine learning.",
+          "Uses a pay-as-you-go pricing model: customers pay only for services consumed, with no long-term contracts or termination fees.",
+          "Supports hybrid and edge use cases with AWS Outposts, AWS Wavelength, and AWS Dedicated Local Zones.",
+          "Highlights AI-ready infrastructure and global reach, including low-latency content delivery and telecom edge locations."
         ]
       },
       "role": {
@@ -927,37 +1692,37 @@
         "requirements": [
           {
             "id": "REQ-001",
-            "text": "Experienced in React",
+            "text": "Experience with React",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-002",
-            "text": "Experienced in Node.js",
+            "text": "Experience with Node.js",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-003",
-            "text": "Experienced in APIs",
+            "text": "Experience with APIs",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-004",
-            "text": "Experienced in databases",
+            "text": "Experience with databases",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-005",
-            "text": "Experienced in system design",
+            "text": "Experience with system design",
             "category": "skill",
             "priority": "must"
           },
           {
             "id": "REQ-006",
-            "text": "Experienced in AWS",
+            "text": "Experience with AWS",
             "category": "skill",
             "priority": "must"
           },
@@ -969,7 +1734,7 @@
           },
           {
             "id": "REQ-008",
-            "text": "Comfortable collaborating with engineering teams",
+            "text": "Collaborating with engineering teams",
             "category": "responsibility",
             "priority": "must"
           }
@@ -978,34 +1743,37 @@
       "questions": [
         {
           "id": "Q-001",
-          "question": "Describe a complex React component you built and how you optimized its performance.",
+          "question": "How do you manage local state in React and when would you choose useState over useReducer?",
           "category": "technical",
-          "difficulty": "medium",
+          "difficulty": "easy",
           "requirementIds": [
             "REQ-001"
           ]
         },
         {
           "id": "Q-002",
-          "question": "How would you design a Node.js microservice to handle high concurrency? Walk through the async patterns and failure handling.",
-          "category": "technical",
-          "difficulty": "hard",
-          "requirementIds": [
-            "REQ-002"
-          ]
-        },
-        {
-          "id": "Q-003",
-          "question": "How do you design a versioned REST API that is secure, rate-limited, and easy for clients to consume?",
+          "question": "Describe how you would design and structure a Node.js REST API, including middleware, routing, and error handling.",
           "category": "technical",
           "difficulty": "medium",
           "requirementIds": [
+            "REQ-002",
             "REQ-003"
           ]
         },
         {
+          "id": "Q-003",
+          "question": "How would you optimize a slow database query that is called by a Node.js API? What indexing or caching strategies would you consider?",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-002",
+            "REQ-003",
+            "REQ-004"
+          ]
+        },
+        {
           "id": "Q-004",
-          "question": "A production SQL query is slowing down. What steps do you take to diagnose and optimize it?",
+          "question": "How would you decide between SQL and NoSQL for a new service? Give an example where each is the better fit.",
           "category": "technical",
           "difficulty": "medium",
           "requirementIds": [
@@ -1014,7 +1782,7 @@
         },
         {
           "id": "Q-005",
-          "question": "Using AWS services, how would you design a multi-tenant system that scales to 250k requests per second like Booking.com?",
+          "question": "Walk me through designing a scalable multi-tier web application on AWS. Which compute, storage, and database services would you use and why?",
           "category": "system-design",
           "difficulty": "hard",
           "requirementIds": [
@@ -1024,29 +1792,72 @@
         },
         {
           "id": "Q-006",
-          "question": "AWS spans 39 regions and 124 Availability Zones. How would you architect a multi-region application for high availability and disaster recovery?",
+          "question": "How would you build a highly available and fault-tolerant architecture on AWS using multiple Availability Zones and services like ELB and RDS?",
           "category": "system-design",
           "difficulty": "hard",
           "requirementIds": [
+            "REQ-005",
             "REQ-006"
           ]
         },
         {
           "id": "Q-007",
-          "question": "Tell me about a production issue you resolved. How did you isolate the root cause and what would you do differently?",
-          "category": "behavioral",
-          "difficulty": "medium",
+          "question": "Compare SQS, SNS, and Kinesis. When would you use each in an event-driven AWS architecture?",
+          "category": "system-design",
+          "difficulty": "hard",
           "requirementIds": [
-            "REQ-007"
+            "REQ-004",
+            "REQ-006"
           ]
         },
         {
           "id": "Q-008",
-          "question": "Describe how you collaborate with engineering teams to ensure code quality and smooth feature deployments.",
+          "question": "Tell me about a time you debugged a production issue that affected end users. What steps did you take to identify the root cause and how did you coordinate with your team?",
           "category": "behavioral",
           "difficulty": "medium",
           "requirementIds": [
+            "REQ-007",
             "REQ-008"
+          ]
+        },
+        {
+          "id": "Q-009",
+          "question": "Describe a situation where you collaborated with other engineers to define an API contract or database schema. How did you ensure alignment and handle disagreements?",
+          "category": "behavioral",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-008",
+            "REQ-003",
+            "REQ-004"
+          ]
+        },
+        {
+          "id": "Q-010",
+          "question": "AWS emphasizes customer obsession. Can you share an example where you considered the customer impact when making an engineering decision?",
+          "category": "company-fit",
+          "difficulty": "easy",
+          "requirementIds": [
+            "REQ-008"
+          ]
+        },
+        {
+          "id": "Q-011",
+          "question": "How would you secure a Node.js API with authentication and authorization? What are some common pitfalls you would avoid?",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-002",
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "Q-012",
+          "question": "How would you monitor and debug an application that uses multiple AWS services? What tools would you use to trace a failed request from the user to the database?",
+          "category": "technical",
+          "difficulty": "medium",
+          "requirementIds": [
+            "REQ-006",
+            "REQ-007"
           ]
         }
       ],
@@ -1054,8 +1865,8 @@
         {
           "id": "FC-001",
           "questionId": "Q-001",
-          "front": "Describe a complex React component you built and how you optimized its performance.",
-          "back": "Use useMemo/useCallback to prevent unnecessary re-renders, React.memo for expensive components, virtualize long lists, lazy load code-splitting, and avoid inline objects/arrays. Explain profiling with React DevTools and a concrete before/after performance metric.",
+          "front": "How do you manage local state in React and when would you choose useState over useReducer?",
+          "back": "Use useState for simple, independent state or when updates are not complex. Choose useReducer when state logic involves multiple sub-values, complex transitions, or when the next state depends heavily on the previous state.",
           "requirementIds": [
             "REQ-001"
           ]
@@ -1063,26 +1874,29 @@
         {
           "id": "FC-002",
           "questionId": "Q-002",
-          "front": "How would you design a Node.js microservice to handle high concurrency? Walk through the async patterns and failure handling.",
-          "back": "Use the cluster module or worker threads to utilize all CPUs, offload blocking work, design stateless services, implement queues with backpressure, graceful shutdown, retries with exponential backoff, circuit breakers, and centralized logging. Emphasize async/await and error handling.",
+          "front": "Describe how you would design and structure a Node.js REST API, including middleware, routing, and error handling.",
+          "back": "Start with a layered structure: Express app, modular routes, controllers, services, and data access. Use middleware for logging, authentication, validation, and centralized error handling. Route handlers delegate to services, and errors are passed to an error-handling middleware that sends consistent responses.",
           "requirementIds": [
-            "REQ-002"
+            "REQ-002",
+            "REQ-003"
           ]
         },
         {
           "id": "FC-003",
           "questionId": "Q-003",
-          "front": "How do you design a versioned REST API that is secure, rate-limited, and easy for clients to consume?",
-          "back": "Use URI versioning (/v1), OAuth2/JWT or API keys, rate limiting via API Gateway, pagination, filtering, idempotency keys, clear error codes, and OpenAPI docs. Explain caching and backward compatibility.",
+          "front": "How would you optimize a slow database query that is called by a Node.js API? What indexing or caching strategies would you consider?",
+          "back": "Analyze the query with EXPLAIN, add appropriate indexes, and use covering indexes when possible. Reduce data by pagination or column selection. Cache frequent reads using Redis or in-memory caches. Consider denormalization, materialized views, or read replicas for heavy reads. Avoid N+1 queries and use connection pooling.",
           "requirementIds": [
-            "REQ-003"
+            "REQ-002",
+            "REQ-003",
+            "REQ-004"
           ]
         },
         {
           "id": "FC-004",
           "questionId": "Q-004",
-          "front": "A production SQL query is slowing down. What steps do you take to diagnose and optimize it?",
-          "back": "Use EXPLAIN ANALYZE to check query plan, look for sequential scans, missing indexes, outdated statistics. Add appropriate indexes, rewrite query, avoid OR/leading wildcard, reduce columns, partition large tables, and test in staging.",
+          "front": "How would you decide between SQL and NoSQL for a new service? Give an example where each is the better fit.",
+          "back": "Choose SQL when you need ACID transactions, strong consistency, and complex joins (e.g., payments or order management). Choose NoSQL for flexible schemas, horizontal scaling, and high write/read throughput with less relational dependency (e.g., user activity feeds or IoT data). The decision depends on data model, access patterns, and consistency requirements.",
           "requirementIds": [
             "REQ-004"
           ]
@@ -1090,8 +1904,8 @@
         {
           "id": "FC-005",
           "questionId": "Q-005",
-          "front": "Using AWS services, how would you design a multi-tenant system that scales to 250k requests per second like Booking.com?",
-          "back": "Design with API Gateway + ALB, stateless containers on ECS/EKS/Fargate, horizontal auto-scaling, SQS/Kinesis for async, ElastiCache/DAX for caching, RDS Aurora with read replicas and sharding, S3 static assets, multi-AZ, and tenant isolation. Mention demand-based scaling and cost optimizations.",
+          "front": "Walk me through designing a scalable multi-tier web application on AWS. Which compute, storage, and database services would you use and why?",
+          "back": "Use Route 53 for DNS, CloudFront and S3 for static content, ALB for load balancing, and EC2 or ECS/EKS with Auto Scaling for compute. Use RDS (PostgreSQL/MySQL) with Multi-AZ and read replicas for database, ElastiCache for caching, and S3 for file storage. Separate frontend, application, and data tiers for scalability and resilience.",
           "requirementIds": [
             "REQ-005",
             "REQ-006"
@@ -1100,28 +1914,71 @@
         {
           "id": "FC-006",
           "questionId": "Q-006",
-          "front": "AWS spans 39 regions and 124 Availability Zones. How would you architect a multi-region application for high availability and disaster recovery?",
-          "back": "Use Route53 latency-based routing with health checks, active-active or active-passive failover, replicate data across regions (Aurora Global Database/DynamoDB Global Tables/S3 CRR), automate failover, and implement disaster recovery strategies such as backup/restore, pilot light, warm standby, or multi-region active-active.",
+          "front": "How would you build a highly available and fault-tolerant architecture on AWS using multiple Availability Zones and services like ELB and RDS?",
+          "back": "Deploy compute resources across at least two AZs, place them behind an Application Load Balancer, and enable Auto Scaling. Use RDS Multi-AZ for fault-tolerant databases and Route 53 health checks for DNS failover. Design for no single point of failure, use S3 for durable static/source data, and ensure all tiers are decoupled.",
           "requirementIds": [
+            "REQ-005",
             "REQ-006"
           ]
         },
         {
           "id": "FC-007",
           "questionId": "Q-007",
-          "front": "Tell me about a production issue you resolved. How did you isolate the root cause and what would you do differently?",
-          "back": "Describe a real incident using STAR: situation, task, actions, result. Focus on isolation through logs, metrics, tracing, rollback, and monitoring. Mention blameless post-mortem, monitoring alerts, and future prevention via tests/automation.",
+          "front": "Compare SQS, SNS, and Kinesis. When would you use each in an event-driven AWS architecture?",
+          "back": "SQS is a fully managed message queue for decoupling components; use it when one consumer should process each message. SNS is pub/sub for fanning out notifications to many subscribers. Kinesis is for real-time streaming and processing large amounts of data, allowing multiple consumers to replay or analyze. Choose based on delivery model: queue, pub/sub, or stream.",
           "requirementIds": [
-            "REQ-007"
+            "REQ-004",
+            "REQ-006"
           ]
         },
         {
           "id": "FC-008",
           "questionId": "Q-008",
-          "front": "Describe how you collaborate with engineering teams to ensure code quality and smooth feature deployments.",
-          "back": "Use PR reviews, CI/CD pipelines, automated tests, pair programming, clear communication, feature flags, and documentation. Discuss agile ceremonies and ensuring observability after deployments.",
+          "front": "Tell me about a time you debugged a production issue that affected end users. What steps did you take to identify the root cause and how did you coordinate with your team?",
+          "back": "Use the STAR method. Describe the incident, how you gathered data from logs/metrics/tracing, isolated the affected component, and applied a rollback or hotfix. Explain how you communicated with stakeholders and teammates using a dedicated channel, delegated tasks, and then ran a postmortem to prevent recurrence.",
+          "requirementIds": [
+            "REQ-007",
+            "REQ-008"
+          ]
+        },
+        {
+          "id": "FC-009",
+          "questionId": "Q-009",
+          "front": "Describe a situation where you collaborated with other engineers to define an API contract or database schema. How did you ensure alignment and handle disagreements?",
+          "back": "Set a clear example: I initiated a design doc and invited stakeholders to review. We used OpenAPI for the contract and versioned the API from the start. For disagreements, we compared tradeoffs against business requirements and data. I made sure everyone had a voice, used prototypes to validate assumptions, and followed a decision log to keep alignment.",
+          "requirementIds": [
+            "REQ-008",
+            "REQ-003",
+            "REQ-004"
+          ]
+        },
+        {
+          "id": "FC-010",
+          "questionId": "Q-010",
+          "front": "AWS emphasizes customer obsession. Can you share an example where you considered the customer impact when making an engineering decision?",
+          "back": "Give a concise example: I optimized API response times after user complaints, or added monitoring for a critical user journey. Explain how you identified the customer need, measured impact, and made a tradeoff that prioritized user experience (e.g., caching frequently accessed data to reduce latency).",
           "requirementIds": [
             "REQ-008"
+          ]
+        },
+        {
+          "id": "FC-011",
+          "questionId": "Q-011",
+          "front": "How would you secure a Node.js API with authentication and authorization? What are some common pitfalls you would avoid?",
+          "back": "Use HTTPS, validate and sanitize inputs, hash passwords with bcrypt or argon2, implement authentication with JWT or OAuth, and role-based access control (RBAC) for authorization. Avoid pitfalls: hardcoded secrets, missing rate limiting, insecure CORS, CORS misconfiguration, exposing stack traces, and not rotating or expiring tokens.",
+          "requirementIds": [
+            "REQ-002",
+            "REQ-003"
+          ]
+        },
+        {
+          "id": "FC-012",
+          "questionId": "Q-012",
+          "front": "How would you monitor and debug an application that uses multiple AWS services? What tools would you use to trace a failed request from the user to the database?",
+          "back": "Use Amazon CloudWatch for metrics, logs, and alarms, AWS X-Ray for distributed tracing, and AWS CloudTrail for API activity. To trace a failed request, enable X-Ray on API Gateway, Lambda, or EC2, follow the trace ID through services, check logs in CloudWatch, and inspect database queries and error exceptions. Add correlation IDs to logs and use dashboards for visibility.",
+          "requirementIds": [
+            "REQ-006",
+            "REQ-007"
           ]
         }
       ],
@@ -1130,7 +1987,7 @@
           "day": 1,
           "focus": "Interview preparation - Day 1",
           "questionIds": [
-            "Q-002"
+            "Q-005"
           ],
           "durationMinutes": 30
         },
@@ -1138,7 +1995,7 @@
           "day": 2,
           "focus": "Interview preparation - Day 2",
           "questionIds": [
-            "Q-005"
+            "Q-006"
           ],
           "durationMinutes": 30
         },
@@ -1146,7 +2003,7 @@
           "day": 3,
           "focus": "Interview preparation - Day 3",
           "questionIds": [
-            "Q-006"
+            "Q-007"
           ],
           "durationMinutes": 30
         },
@@ -1154,7 +2011,7 @@
           "day": 4,
           "focus": "Interview preparation - Day 4",
           "questionIds": [
-            "Q-001"
+            "Q-002"
           ],
           "durationMinutes": 20
         },
@@ -1178,7 +2035,7 @@
           "day": 7,
           "focus": "Interview preparation - Day 7",
           "questionIds": [
-            "Q-007"
+            "Q-008"
           ],
           "durationMinutes": 20
         },
@@ -1186,33 +2043,41 @@
           "day": 8,
           "focus": "Interview preparation - Day 8",
           "questionIds": [
-            "Q-008"
+            "Q-009"
           ],
           "durationMinutes": 20
         },
         {
           "day": 9,
           "focus": "Interview preparation - Day 9",
-          "questionIds": [],
-          "durationMinutes": 0
+          "questionIds": [
+            "Q-011"
+          ],
+          "durationMinutes": 20
         },
         {
           "day": 10,
           "focus": "Interview preparation - Day 10",
-          "questionIds": [],
-          "durationMinutes": 0
+          "questionIds": [
+            "Q-012"
+          ],
+          "durationMinutes": 20
         },
         {
           "day": 11,
           "focus": "Interview preparation - Day 11",
-          "questionIds": [],
-          "durationMinutes": 0
+          "questionIds": [
+            "Q-001"
+          ],
+          "durationMinutes": 15
         },
         {
           "day": 12,
           "focus": "Interview preparation - Day 12",
-          "questionIds": [],
-          "durationMinutes": 0
+          "questionIds": [
+            "Q-010"
+          ],
+          "durationMinutes": 15
         },
         {
           "day": 13,

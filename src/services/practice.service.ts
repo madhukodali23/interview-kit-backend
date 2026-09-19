@@ -3,6 +3,7 @@ import {
   notFoundError,
   validationError,
   updateMyInterviewKit,
+  toPlainObject,
 } from "./interviewKit.service.js";
 
 import {
@@ -153,7 +154,7 @@ export const submitPracticeReview = async (
     (flashcard) =>
       flashcard.id === flashcardId
         ? {
-            ...flashcard,
+            ...toPlainObject(flashcard),
             practice: {
               confidence,
               covered,

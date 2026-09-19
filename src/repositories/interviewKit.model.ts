@@ -274,6 +274,25 @@ const interviewKitSchema =
     },
   );
 
+/**
+ * By default Mongoose documents serialize with `_id`/`__v` and without the
+ * `id` string virtual, while `createInterviewKit` (create response) manually
+ * returns an explicit `id`. Without this, every other endpoint (get/update/
+ * builder operations, which all return the raw document) would expose a
+ * different identifier shape than the create response. This makes every
+ * kit-shaped API response consistent for API consumers.
+ */
+interviewKitSchema.set("toJSON", {
+  virtuals: true,
+  versionKey: false,
+  transform: (_doc, ret) => {
+    const output = ret as unknown as Record<string, unknown>;
+    delete output._id;
+    delete output.ownerId;
+    return output;
+  },
+});
+
 export const InterviewKitModel =
   mongoose.model<InterviewKitDocument>(
     "InterviewKit",

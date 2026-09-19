@@ -40,6 +40,22 @@ import {
   completeCoverage,
 } from "./coverage.service.js";
 
+/**
+ * `kit.questions`/`kit.flashcards`/`kit.role.requirements` are Mongoose
+ * array subdocuments, not plain objects. Spreading one directly
+ * (`{...subdoc, ...updates}`) does not reliably copy its schema-typed
+ * fields as own enumerable properties, silently dropping them (e.g.
+ * `priority`, `category`, `requirementIds`) and failing the subsequent
+ * validation. Converting to a plain object first avoids that.
+ */
+export const toPlainObject = <T>(value: T): T => {
+  const maybeDocument = value as { toObject?: () => T };
+
+  return typeof maybeDocument.toObject === "function"
+    ? maybeDocument.toObject()
+    : value;
+};
+
 export const notFoundError = () =>
   new AppError(
     ERROR_CODES.NOT_FOUND,
@@ -242,7 +258,7 @@ export const editQuestion = async (
     (question) =>
       question.id === questionId
         ? {
-            ...question,
+            ...toPlainObject(question),
             ...updates,
             id: question.id,
             isUserEdited: true,
@@ -403,7 +419,7 @@ export const editFlashcard = async (
       (flashcard) =>
         flashcard.id === flashcardId
           ? {
-              ...flashcard,
+              ...toPlainObject(flashcard),
               ...updates,
               id: flashcard.id,
               isUserEdited: true,
@@ -534,7 +550,7 @@ export const editRequirement = async (
       (requirement) =>
         requirement.id === requirementId
           ? {
-              ...requirement,
+              ...toPlainObject(requirement),
               ...updates,
               id: requirement.id,
               isUserEdited: true,

@@ -18,6 +18,8 @@ if (!SESSION_SECRET) {
   console.warn("SESSION_SECRET is not configured");
 }
 
+const CORS_ORIGIN = process.env.CORS_ORIGIN;
+
 export const env = {
   NODE_ENV,
   PORT,
@@ -25,4 +27,5 @@ export const env = {
   LLM_MODEL,
   MONGODB_URI,
   SESSION_SECRET,
+  CORS_ORIGIN,
 };

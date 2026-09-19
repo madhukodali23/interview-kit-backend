@@ -6,6 +6,10 @@ import { validateInterviewKit } from "../layers/validation/schemas/interviewKit.
 import { validateCompanyBrief } from "../layers/validation/schemas/companyBrief.schema.js";
 import { validateJDExtraction } from "../layers/validation/schemas/jdExtraction.schema.js";
 import { validatePracticeReviewInput } from "../layers/validation/practice.validation.js";
+import {
+  applyCompanyBriefFallbacks,
+  NO_SOURCE_DATA_TEXT,
+} from "../services/companyBrief.service.js";
 import { InterviewKit } from "../types/interviewKit/interviewKit.js";
 
 const buildValidKit = (): InterviewKit => ({
@@ -187,9 +191,22 @@ describe("validateCompanyBrief", () => {
     );
   });
 
-  it("flags a missing overview", () => {
+  it("accepts an empty overview and industry (the prompt allows this when research has no usable data)", () => {
+    assert.deepEqual(
+      validateCompanyBrief({
+        overview: "",
+        products: [],
+        industry: "",
+        culture: [],
+        engineering: [],
+      }),
+      [],
+    );
+  });
+
+  it("flags a non-string overview", () => {
     const errors = validateCompanyBrief({
-      overview: "",
+      overview: 123 as unknown as string,
       products: [],
       industry: "Software",
       culture: [],
@@ -199,6 +216,61 @@ describe("validateCompanyBrief", () => {
     assert.ok(
       errors.some((error) => error.includes("overview")),
     );
+  });
+
+  it("flags a non-string industry", () => {
+    const errors = validateCompanyBrief({
+      overview: "A company",
+      products: [],
+      industry: null as unknown as string,
+      culture: [],
+      engineering: [],
+    });
+
+    assert.ok(
+      errors.some((error) => error.includes("Industry")),
+    );
+  });
+});
+
+describe("applyCompanyBriefFallbacks", () => {
+  it("leaves a fully-populated brief untouched", () => {
+    const brief = {
+      overview: "A company",
+      products: ["Widget"],
+      industry: "Software",
+      culture: ["Remote-first"],
+      engineering: ["TypeScript"],
+    };
+
+    assert.deepEqual(applyCompanyBriefFallbacks(brief), brief);
+  });
+
+  it("backfills empty overview and industry with safe fallback text instead of leaving them blank", () => {
+    const result = applyCompanyBriefFallbacks({
+      overview: "",
+      products: [],
+      industry: "   ",
+      culture: [],
+      engineering: [],
+    });
+
+    assert.equal(result.overview, NO_SOURCE_DATA_TEXT);
+    assert.equal(result.industry, NO_SOURCE_DATA_TEXT);
+  });
+
+  it("does not touch products, culture, or engineering (empty arrays are a legitimate 'no info' signal)", () => {
+    const result = applyCompanyBriefFallbacks({
+      overview: "A company",
+      products: [],
+      industry: "Software",
+      culture: [],
+      engineering: [],
+    });
+
+    assert.deepEqual(result.products, []);
+    assert.deepEqual(result.culture, []);
+    assert.deepEqual(result.engineering, []);
   });
 });
 

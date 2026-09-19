@@ -1,0 +1,32 @@
+[
+  {
+    "id": "case-1",
+    "jobDescription": "We are looking for a Full Stack Developer with strong experience in React, Node.js, Express, MongoDB, REST APIs and JavaScript. Experience with AWS and Git is preferred.",
+    "companyUrl": "https://www.mongodb.com",
+    "days": 7
+  },
+  {
+    "id": "case-2",
+    "jobDescription": "Frontend Developer responsible for building responsive web applications using React, TypeScript, HTML and CSS. Experience with state management and REST APIs is required.",
+    "companyUrl": "https://react.dev",
+    "days": 1
+  },
+  {
+    "id": "case-3",
+    "jobDescription": "Backend Engineer with experience in Node.js, Express, PostgreSQL, REST APIs, authentication and Docker. Knowledge of cloud deployment is a plus.",
+    "companyUrl": "https://www.docker.com",
+    "days": 14
+  },
+  {
+    "id": "case-4",
+    "jobDescription": "Software Engineer with JavaScript, React, Node.js and MongoDB skills. Strong problem solving, communication and teamwork abilities required.",
+    "companyUrl": "https://nodejs.org",
+    "days": 30
+  },
+  {
+    "id": "case-5",
+    "jobDescription": "Full Stack Engineer experienced in React, Node.js, APIs, databases, system design and AWS. Candidates should be comfortable debugging production issues and collaborating with engineering teams.",
+    "companyUrl": "https://aws.amazon.com",
+    "days": 60
+  }
+]

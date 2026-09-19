@@ -4,6 +4,7 @@ import { cleanHtml } from "../infrastructure/web/htmlCleaner.js";
 import { discoverLinks } from "../infrastructure/web/linkDiscovery.js";
 import { rankLinks } from "../infrastructure/web/linkRanker.js";
 import { crawlPages } from "../infrastructure/web/pageCrawler.js";
+import { limits } from "../config/limits.js";
 
 export interface CompanyResearchResult {
   url: string;
@@ -50,16 +51,37 @@ export const researchCompany = async (
 };
 
 /**
- * Turns skipped/unreachable secondary research pages into human-readable
- * warnings so the failure is reported on the kit instead of silently lost.
+ * Turns research-quality problems into human-readable warnings so they are
+ * reported on the kit instead of silently lost or (worse) causing the whole
+ * run to fail:
+ *  - skipped/unreachable secondary pages
+ *  - a company site that loaded but yielded too little usable content to
+ *    reliably ground a company brief (the brief will fall back to safe
+ *    "not available" text for any field the model couldn't fill in)
+ *
  * The primary company URL itself is never "skipped" this way: if it is
  * unreachable, researchCompany throws and the whole run fails, since there
- * is nothing to build a company brief from.
+ * is nothing at all to build a company brief from.
  */
 export const buildResearchWarnings = (
   research: CompanyResearchResult,
 ): string[] => {
-  return research.skippedPages.map(
+  const warnings = research.skippedPages.map(
     (page) => `Skipped ${page.url}: ${page.reason}`,
   );
+
+  const combinedLength =
+    research.text.length +
+    research.pages.reduce(
+      (sum, page) => sum + page.text.length,
+      0,
+    );
+
+  if (combinedLength < limits.minUsefulResearchLength) {
+    warnings.push(
+      `Company research for ${research.url} yielded very little usable content; the company brief may rely on fallback values.`,
+    );
+  }
+
+  return warnings;
 };

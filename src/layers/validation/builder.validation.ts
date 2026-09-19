@@ -93,6 +93,96 @@ export const validateQuestions = (
   return errors;
 };
 
+/**
+ * Drops individually-malformed items instead of failing the whole batch.
+ * LLM generation occasionally produces a handful of bad items (missing a
+ * requirement reference, a duplicate ID, etc.) in an otherwise-usable batch;
+ * discarding just those preserves the rest rather than wasting the whole
+ * generation call. Callers that depend on a coverage guarantee (e.g.
+ * completeCoverage's second pass) re-check it after filtering, so this never
+ * silently drops below what's actually required.
+ */
+export const filterUsableQuestions = (
+  questions: Question[],
+  requirementIds: Set<string>,
+): Question[] => {
+  const seenIds = new Set<string>();
+
+  return questions.filter((question) => {
+    if (
+      !isNonEmptyString(question.id) ||
+      seenIds.has(question.id)
+    ) {
+      return false;
+    }
+
+    if (!isNonEmptyString(question.question)) {
+      return false;
+    }
+
+    if (!QUESTION_CATEGORIES.includes(question.category)) {
+      return false;
+    }
+
+    if (!DIFFICULTIES.includes(question.difficulty)) {
+      return false;
+    }
+
+    if (
+      !Array.isArray(question.requirementIds) ||
+      question.requirementIds.length === 0 ||
+      !question.requirementIds.every((id) =>
+        requirementIds.has(id),
+      )
+    ) {
+      return false;
+    }
+
+    seenIds.add(question.id);
+    return true;
+  });
+};
+
+/**
+ * Same idea as `filterUsableQuestions`, for flashcards.
+ */
+export const filterUsableFlashcards = (
+  flashcards: Flashcard[],
+  questionIds: Set<string>,
+): Flashcard[] => {
+  const seenIds = new Set<string>();
+
+  return flashcards.filter((flashcard) => {
+    if (
+      !isNonEmptyString(flashcard.id) ||
+      seenIds.has(flashcard.id)
+    ) {
+      return false;
+    }
+
+    if (
+      !isNonEmptyString(flashcard.questionId) ||
+      !questionIds.has(flashcard.questionId)
+    ) {
+      return false;
+    }
+
+    if (
+      !isNonEmptyString(flashcard.front) ||
+      !isNonEmptyString(flashcard.back)
+    ) {
+      return false;
+    }
+
+    if (!Array.isArray(flashcard.requirementIds)) {
+      return false;
+    }
+
+    seenIds.add(flashcard.id);
+    return true;
+  });
+};
+
 export const validateFlashcards = (
   flashcards: Flashcard[],
   questions: Question[],

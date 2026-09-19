@@ -58,6 +58,7 @@ export const generateText = async (
     return await withRetry(async () => {
       const response = await client.chat.completions.create({
         model: env.LLM_MODEL,
+        max_tokens: limits.llm.maxOutputTokens,
         messages: [
           {
             role: "user",
@@ -66,13 +67,23 @@ export const generateText = async (
         ],
       });
 
-      const content = response.choices[0]?.message?.content;
+      const choice = response.choices[0];
+      const content = choice?.message?.content;
 
       if (!content) {
         throw new AppError(
           ERROR_CODES.LLM_INVALID_RESPONSE,
           ERROR_MESSAGES.LLM_INVALID_RESPONSE,
           502,
+        );
+      }
+
+      if (choice.finish_reason === "length") {
+        // Server-side diagnostic only: the response was cut off before
+        // completion. Parsing will very likely fail downstream; this makes
+        // the real cause obvious instead of a bare "invalid JSON" log.
+        console.error(
+          "[generateText] Response was truncated (finish_reason=length). Consider raising limits.llm.maxOutputTokens or reducing batch size.",
         );
       }
 

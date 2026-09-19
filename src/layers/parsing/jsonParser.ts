@@ -47,6 +47,16 @@ export const parseJsonResponse = <T>(content: string): T => {
   try {
     return JSON.parse(candidate) as T;
   } catch {
+    // Server-side only: never exposed in the AppError/client response, but
+    // invaluable for diagnosing which stage/prompt an LLM went off the rails
+    // on, since the client-facing message intentionally stays generic.
+    console.error(
+      "[parseJsonResponse] Failed to parse LLM response as JSON. Raw content preview:",
+      content.slice(0, 1000),
+      "\nCalled from:",
+      new Error().stack?.split("\n").slice(2, 5).join("\n"),
+    );
+
     throw new AppError(
       ERROR_CODES.LLM_INVALID_RESPONSE,
       ERROR_MESSAGES.LLM_INVALID_RESPONSE,

@@ -3,7 +3,7 @@ import { parseJsonResponse } from "../layers/parsing/jsonParser.js";
 import { FLASHCARD_GENERATION_PROMPT } from "../config/prompts/flashcardGeneration.prompt.js";
 import { Question } from "../types/interviewKit/question.js";
 import { Flashcard } from "../types/interviewKit/flashcard.js";
-import { validateFlashcards } from "../layers/validation/builder.validation.js";
+import { filterUsableFlashcards } from "../layers/validation/builder.validation.js";
 import { AppError } from "../errors/AppError.js";
 import { ERROR_CODES } from "../errors/errorCodes.js";
 import { ERROR_MESSAGES } from "../errors/errorMessages.js";
@@ -39,18 +39,26 @@ ${JSON.stringify(questions)}`,
     );
   }
 
-  const errors = validateFlashcards(
-    result.flashcards,
-    questions,
+  const questionIds = new Set(
+    questions.map((question) => question.id),
   );
 
-  if (errors.length > 0) {
+  /**
+   * Drop individually-malformed flashcards rather than failing the whole
+   * batch on one bad item.
+   */
+  const flashcards = filterUsableFlashcards(
+    result.flashcards,
+    questionIds,
+  );
+
+  if (flashcards.length === 0) {
     throw new AppError(
       ERROR_CODES.LLM_INVALID_RESPONSE,
-      `${ERROR_MESSAGES.LLM_INVALID_RESPONSE}: ${errors.join(", ")}`,
+      `${ERROR_MESSAGES.LLM_INVALID_RESPONSE}: no usable flashcards were generated`,
       502,
     );
   }
 
-  return result;
+  return { flashcards };
 };

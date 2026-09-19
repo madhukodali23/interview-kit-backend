@@ -8,19 +8,12 @@ import interviewKitRoutes from "./routes/interviewKit.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 
 import { env } from "./config/env.js";
+import { limits } from "./config/limits.js";
 import { connectDatabase } from "./config/database.js";
 import { errorMiddleware } from "./middleware/error.middleware.js";
+import { notFoundMiddleware } from "./middleware/notFound.middleware.js";
 
-const app = express();
-
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  }),
-);
-
-app.use(express.json());
+const isProduction = env.NODE_ENV === "production";
 
 if (!env.SESSION_SECRET) {
   throw new Error(
@@ -40,6 +33,36 @@ if (!env.OPENROUTER_API_KEY) {
   );
 }
 
+if (isProduction && !env.CORS_ORIGIN) {
+  throw new Error(
+    "CORS_ORIGIN is not configured",
+  );
+}
+
+const app = express();
+
+if (isProduction) {
+  /**
+   * Required so `req.secure` reflects the original client protocol when
+   * running behind a reverse proxy/load balancer (Render, Railway, etc.).
+   * The session cookie's `secure` flag below depends on this being correct.
+   */
+  app.set("trust proxy", 1);
+}
+
+app.use(
+  cors({
+    origin: env.CORS_ORIGIN ?? "http://localhost:3000",
+    credentials: true,
+  }),
+);
+
+app.use(
+  express.json({
+    limit: limits.requestBodySizeLimit,
+  }),
+);
+
 app.use(
   session({
     secret: env.SESSION_SECRET,
@@ -55,8 +78,8 @@ app.use(
 
     cookie: {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
   }),
@@ -70,6 +93,8 @@ app.use(
   "/api/interview-kits",
   interviewKitRoutes,
 );
+
+app.use(notFoundMiddleware);
 
 app.use(errorMiddleware);
 

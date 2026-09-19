@@ -3,7 +3,7 @@ import { parseJsonResponse } from "../layers/parsing/jsonParser.js";
 import { QUESTION_GENERATION_PROMPT } from "../config/prompts/questionGeneration.prompt.js";
 import { Requirement } from "../types/interviewKit/requirement.js";
 import { Question } from "../types/interviewKit/question.js";
-import { validateQuestions } from "../layers/validation/builder.validation.js";
+import { filterUsableQuestions } from "../layers/validation/builder.validation.js";
 import { AppError } from "../errors/AppError.js";
 import { ERROR_CODES } from "../errors/errorCodes.js";
 import { ERROR_MESSAGES } from "../errors/errorMessages.js";
@@ -43,18 +43,24 @@ ${JSON.stringify({
     requirements.map((requirement) => requirement.id),
   );
 
-  const errors = validateQuestions(
+  /**
+   * Drop individually-malformed questions rather than failing the whole
+   * batch on one bad item. `completeCoverage`'s second pass still verifies
+   * every MUST requirement ends up covered, so this can't silently produce
+   * an under-covered kit.
+   */
+  const questions = filterUsableQuestions(
     result.questions,
     requirementIds,
   );
 
-  if (errors.length > 0) {
+  if (questions.length === 0) {
     throw new AppError(
       ERROR_CODES.LLM_INVALID_RESPONSE,
-      `${ERROR_MESSAGES.LLM_INVALID_RESPONSE}: ${errors.join(", ")}`,
+      `${ERROR_MESSAGES.LLM_INVALID_RESPONSE}: no usable questions were generated`,
       502,
     );
   }
 
-  return result;
+  return { questions };
 };

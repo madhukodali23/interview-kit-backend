@@ -7,6 +7,24 @@ import { ERROR_CODES } from "../errors/errorCodes.js";
 import { ERROR_MESSAGES } from "../errors/errorMessages.js";
 import { CompanyBrief } from "../types/interviewKit/companyBrief.js";
 
+export const NO_SOURCE_DATA_TEXT =
+  "Not available from the provided sources.";
+
+/**
+ * The prompt allows the model to return an empty string for `overview`/
+ * `industry` when company research didn't contain enough information. That
+ * is structurally valid, but an empty string is a poor thing to show a
+ * user. This deterministically backfills a safe, explicit fallback instead
+ * of ever inventing company facts.
+ */
+export const applyCompanyBriefFallbacks = (
+  brief: CompanyBrief,
+): CompanyBrief => ({
+  ...brief,
+  overview: brief.overview?.trim() || NO_SOURCE_DATA_TEXT,
+  industry: brief.industry?.trim() || NO_SOURCE_DATA_TEXT,
+});
+
 export const generateCompanyBrief = async (
   companyResearch: string,
 ): Promise<CompanyBrief> => {
@@ -30,5 +48,5 @@ ${companyResearch}`,
     );
   }
 
-  return result;
+  return applyCompanyBriefFallbacks(result);
 };

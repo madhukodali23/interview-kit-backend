@@ -2,6 +2,7 @@ import { Requirement } from "./requirement.js";
 import { Question } from "./question.js";
 import { Flashcard } from "./flashcard.js";
 import { ScheduleDay } from "./schedule.js";
+import { CompanyBrief } from "./companyBrief.js";
 
 export interface InterviewKit {
   source: {
@@ -9,7 +10,7 @@ export interface InterviewKit {
     companyUrl: string;
   };
 
-  companyBrief: string;
+  companyBrief: CompanyBrief;
 
   role: {
     title: string;
@@ -26,4 +27,10 @@ export interface InterviewKit {
     requirementId: string;
     covered: boolean;
   }[];
+
+  /**
+   * Non-fatal issues encountered while building the kit, e.g. research
+   * pages that were skipped because they were unreachable.
+   */
+  warnings?: string[];
 }

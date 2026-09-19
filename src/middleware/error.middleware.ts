@@ -8,6 +8,10 @@ export const errorMiddleware = (
   _next: NextFunction,
 ) => {
   if (error instanceof AppError) {
+    if (error.statusCode >= 500) {
+      console.error(`[${error.code}]`, error.message);
+    }
+
     res.status(error.statusCode).json({
       success: false,
       code: error.code,
@@ -15,6 +19,8 @@ export const errorMiddleware = (
     });
     return;
   }
+
+  console.error("Unhandled error:", error);
 
   res.status(500).json({
     success: false,

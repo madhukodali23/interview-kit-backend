@@ -2,6 +2,9 @@ import OpenAI from "openai";
 import { env } from "../../config/env.js";
 import { limits } from "../../config/limits.js";
 import { withRetry } from "../../layers/retry/withRetry.js";
+import { AppError } from "../../errors/AppError.js";
+import { ERROR_CODES } from "../../errors/errorCodes.js";
+import { ERROR_MESSAGES } from "../../errors/errorMessages.js";
 
 const client = new OpenAI({
   apiKey: env.OPENROUTER_API_KEY,
@@ -16,11 +19,43 @@ export interface LLMResponse {
   content: string;
 }
 
+const getErrorStatus = (
+  error: unknown,
+): number | undefined => {
+  if (typeof error !== "object" || error === null) {
+    return undefined;
+  }
+
+  return "status" in error
+    ? (error as { status?: number }).status
+    : undefined;
+};
+
+/**
+ * Maps any error that escapes the retry loop into a domain AppError so the
+ * error middleware never has to special-case the OpenAI SDK's error shapes.
+ */
+const mapLLMError = (error: unknown): AppError => {
+  if (getErrorStatus(error) === 429) {
+    return new AppError(
+      ERROR_CODES.LLM_RATE_LIMITED,
+      ERROR_MESSAGES.LLM_RATE_LIMITED,
+      429,
+    );
+  }
+
+  return new AppError(
+    ERROR_CODES.LLM_UNAVAILABLE,
+    ERROR_MESSAGES.LLM_UNAVAILABLE,
+    502,
+  );
+};
+
 export const generateText = async (
   request: LLMRequest,
 ): Promise<LLMResponse> => {
-  return withRetry(
-    async () => {
+  try {
+    return await withRetry(async () => {
       const response = await client.chat.completions.create({
         model: env.LLM_MODEL,
         messages: [
@@ -31,10 +66,23 @@ export const generateText = async (
         ],
       });
 
-      return {
-        content: response.choices[0]?.message?.content ?? "",
-      };
-    },
-    limits.llm,
-  );
+      const content = response.choices[0]?.message?.content;
+
+      if (!content) {
+        throw new AppError(
+          ERROR_CODES.LLM_INVALID_RESPONSE,
+          ERROR_MESSAGES.LLM_INVALID_RESPONSE,
+          502,
+        );
+      }
+
+      return { content };
+    }, limits.llm);
+  } catch (error) {
+    if (error instanceof AppError) {
+      throw error;
+    }
+
+    throw mapLLMError(error);
+  }
 };

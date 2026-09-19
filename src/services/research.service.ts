@@ -1,4 +1,7 @@
-import { researchCompany } from "./companyResearch.service.js";
+import {
+  researchCompany,
+  buildResearchWarnings,
+} from "./companyResearch.service.js";
 import { generateCompanyBrief } from "./companyBrief.service.js";
 import { searchInterviewDiscussions } from "../infrastructure/search/interviewDiscussionSearch.js";
 
@@ -8,6 +11,7 @@ export interface ResearchResult {
   interviewDiscussions: Awaited<
     ReturnType<typeof searchInterviewDiscussions>
   >;
+  warnings: string[];
 }
 
 export const runResearch = async (
@@ -35,5 +39,6 @@ export const runResearch = async (
     companyResearch,
     companyBrief,
     interviewDiscussions,
+    warnings: buildResearchWarnings(companyResearch),
   };
 };

@@ -1,6 +1,6 @@
 import { generateText } from "../infrastructure/llm/llmClient.js";
 import { parseJsonResponse } from "../layers/parsing/jsonParser.js";
-import { MISSING_QUESTIONS_PROMPT } from "../config/prompts/missingQuestions.prompt.js";
+import { QUESTION_GENERATION_PROMPT } from "../config/prompts/questionGeneration.prompt.js";
 import { Requirement } from "../types/interviewKit/requirement.js";
 import { Question } from "../types/interviewKit/question.js";
 import { validateQuestions } from "../layers/validation/builder.validation.js";
@@ -8,20 +8,26 @@ import { AppError } from "../errors/AppError.js";
 import { ERROR_CODES } from "../errors/errorCodes.js";
 import { ERROR_MESSAGES } from "../errors/errorMessages.js";
 
-export interface MissingQuestionsResult {
+export interface QuestionGenerationResult {
   questions: Question[];
 }
 
-export const generateMissingQuestions = async (
+export const generateQuestions = async (
   requirements: Requirement[],
-): Promise<MissingQuestionsResult> => {
-  const response = await generateText({
-    prompt: `${MISSING_QUESTIONS_PROMPT}
+  companyResearch: string,
+): Promise<QuestionGenerationResult> => {
+  const prompt = `${QUESTION_GENERATION_PROMPT}
 
-${JSON.stringify(requirements)}`,
+${JSON.stringify({
+  requirements,
+  companyResearch,
+})}`;
+
+  const response = await generateText({
+    prompt,
   });
 
-  const result = parseJsonResponse<MissingQuestionsResult>(
+  const result = parseJsonResponse<QuestionGenerationResult>(
     response.content,
   );
 

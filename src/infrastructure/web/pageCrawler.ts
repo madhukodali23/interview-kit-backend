@@ -8,12 +8,23 @@ export interface CrawledPage {
   text: string;
 }
 
+export interface SkippedPage {
+  url: string;
+  reason: string;
+}
+
+export interface CrawlResult {
+  pages: CrawledPage[];
+  skipped: SkippedPage[];
+}
+
 export const crawlPages = async (
   links: DiscoveredLink[],
-): Promise<CrawledPage[]> => {
+): Promise<CrawlResult> => {
   const selectedLinks = links.slice(0, limits.maxResearchPages);
 
   const pages: CrawledPage[] = [];
+  const skipped: SkippedPage[] = [];
 
   for (const link of selectedLinks) {
     try {
@@ -23,10 +34,16 @@ export const crawlPages = async (
         url: link.url,
         text: cleanHtml(html),
       });
-    } catch {
-      // Skip unreachable pages.
+    } catch (error) {
+      skipped.push({
+        url: link.url,
+        reason:
+          error instanceof Error
+            ? error.message
+            : "Unknown error",
+      });
     }
   }
 
-  return pages;
+  return { pages, skipped };
 };

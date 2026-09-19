@@ -1,9 +1,13 @@
-import { CompanyBrief } from "../../../services/companyBrief.service.js";
+import { CompanyBrief } from "../../../types/interviewKit/companyBrief.js";
 
 export const validateCompanyBrief = (
   brief: CompanyBrief,
 ): string[] => {
   const errors: string[] = [];
+
+  if (!brief || typeof brief !== "object") {
+    return ["Company brief must be an object"];
+  }
 
   if (!brief.overview?.trim()) {
     errors.push("Company overview is required");
@@ -22,7 +26,9 @@ export const validateCompanyBrief = (
   }
 
   if (!Array.isArray(brief.engineering)) {
-    errors.push("Engineering information must be an array");
+    errors.push(
+      "Engineering information must be an array",
+    );
   }
 
   return errors;

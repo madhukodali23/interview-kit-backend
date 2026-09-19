@@ -5,14 +5,7 @@ import { validateCompanyBrief } from "../layers/validation/schemas/companyBrief.
 import { AppError } from "../errors/AppError.js";
 import { ERROR_CODES } from "../errors/errorCodes.js";
 import { ERROR_MESSAGES } from "../errors/errorMessages.js";
-
-export interface CompanyBrief {
-  overview: string;
-  products: string[];
-  industry: string;
-  culture: string[];
-  engineering: string[];
-}
+import { CompanyBrief } from "../types/interviewKit/companyBrief.js";
 
 export const generateCompanyBrief = async (
   companyResearch: string,
@@ -23,19 +16,19 @@ export const generateCompanyBrief = async (
 ${companyResearch}`,
   });
 
- const result = parseJsonResponse<CompanyBrief>(
-  response.content,
-);
-
-const errors = validateCompanyBrief(result);
-
-if (errors.length > 0) {
-  throw new AppError(
-    ERROR_CODES.LLM_INVALID_RESPONSE,
-    `${ERROR_MESSAGES.LLM_INVALID_RESPONSE}: ${errors.join(", ")}`,
-    502,
+  const result = parseJsonResponse<CompanyBrief>(
+    response.content,
   );
-}
 
-return result;
+  const errors = validateCompanyBrief(result);
+
+  if (errors.length > 0) {
+    throw new AppError(
+      ERROR_CODES.LLM_INVALID_RESPONSE,
+      `${ERROR_MESSAGES.LLM_INVALID_RESPONSE}: ${errors.join(", ")}`,
+      502,
+    );
+  }
+
+  return result;
 };

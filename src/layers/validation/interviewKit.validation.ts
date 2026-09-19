@@ -1,3 +1,5 @@
+import { validateCompanyUrl } from "../security/urlValidator.js";
+
 export interface InterviewKitInput {
   jobDescription: string;
   companyUrl: string;
@@ -17,9 +19,13 @@ export const validateInterviewKitInput = (
     errors.push("Company URL is required");
   } else {
     try {
-      new URL(input.companyUrl);
-    } catch {
-      errors.push("Company URL is invalid");
+      validateCompanyUrl(input.companyUrl);
+    } catch (error) {
+      errors.push(
+        error instanceof Error
+          ? error.message
+          : "Company URL is invalid",
+      );
     }
   }
 

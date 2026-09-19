@@ -39,9 +39,15 @@ export const getMissingMustRequirements = (
   });
 };
 
+/**
+ * `generateMissing` defaults to the real LLM-backed implementation.
+ * Overridable for tests so the deterministic second-pass logic can be
+ * verified without calling out to an LLM.
+ */
 export const completeCoverage = async (
   requirements: Requirement[],
   questions: Question[],
+  generateMissing: typeof generateMissingQuestions = generateMissingQuestions,
 ): Promise<Question[]> => {
   const initialCoverage = calculateCoverage(
     requirements,
@@ -57,7 +63,7 @@ export const completeCoverage = async (
     return questions;
   }
 
-  const result = await generateMissingQuestions(
+  const result = await generateMissing(
     missingRequirements,
   );
 

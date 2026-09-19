@@ -21,6 +21,111 @@ export interface CreateInterviewKitInput {
   days: number;
 }
 
+/**
+ * Runs the full generation pipeline (retrieval -> extraction -> generation ->
+ * scheduling -> final validation) and returns a kit ready to persist, without
+ * touching the database. This is the piece the evaluation CLI reuses, so
+ * batch evaluation runs the exact same pipeline as the live API.
+ */
+export const buildInterviewKit = async (
+  input: CreateInterviewKitInput,
+): Promise<InterviewKit> => {
+  const jdExtraction = await extractJobDescription(
+    input.jobDescription,
+  );
+
+  const research = await runResearch(
+    input.companyUrl,
+    jdExtraction.roleTitle,
+  );
+
+  const companyResearchText = [
+    research.companyResearch.text,
+    ...research.companyResearch.pages.map(
+      (page) => page.text,
+    ),
+  ].join("\n\n");
+
+  const questionResult = await generateQuestions(
+    jdExtraction.requirements,
+    companyResearchText,
+  );
+
+  const questions = await completeCoverage(
+    jdExtraction.requirements,
+    questionResult.questions,
+  );
+
+  const flashcardResult =
+    await generateFlashcards(questions);
+
+  const schedule = generateSchedule(
+    questions,
+    jdExtraction.requirements,
+    input.days,
+  );
+
+  const scheduleErrors = validateSchedule(
+    schedule,
+    input.days,
+  );
+
+  if (scheduleErrors.length > 0) {
+    throw new AppError(
+      ERROR_CODES.KIT_VALIDATION_FAILED,
+      `${ERROR_MESSAGES.KIT_VALIDATION_FAILED}: ${scheduleErrors.join(", ")}`,
+      502,
+    );
+  }
+
+  const coverage = jdExtraction.requirements.map(
+    (requirement) => ({
+      requirementId: requirement.id,
+      covered: questions.some((question) =>
+        question.requirementIds.includes(requirement.id),
+      ),
+    }),
+  );
+
+  const kit: InterviewKit = {
+    source: {
+      jobDescription: input.jobDescription,
+      companyUrl: input.companyUrl,
+    },
+    companyBrief: research.companyBrief,
+    role: {
+      title: jdExtraction.roleTitle,
+      requirements: jdExtraction.requirements,
+    },
+    questions,
+    flashcards: flashcardResult.flashcards,
+    schedule,
+    coverage,
+    warnings: research.warnings,
+  };
+
+  /**
+   * Final validation gate before the kit is returned/persisted. Combines the
+   * schema-level shape check with the deeper builder-level check
+   * (question/flashcard content, requirement references, company brief
+   * shape) so a malformed pipeline output never reaches the database.
+   */
+  const validationErrors = [
+    ...validateInterviewKit(kit),
+    ...validateEditableInterviewKit(kit),
+  ];
+
+  if (validationErrors.length > 0) {
+    throw new AppError(
+      ERROR_CODES.KIT_VALIDATION_FAILED,
+      `${ERROR_MESSAGES.KIT_VALIDATION_FAILED}: ${validationErrors.join(", ")}`,
+      502,
+    );
+  }
+
+  return kit;
+};
+
 const inFlightRequests = new Set<string>();
 
 /**
@@ -57,98 +162,7 @@ export const createInterviewKit = async (
   inFlightRequests.add(requestKey);
 
   try {
-    const jdExtraction = await extractJobDescription(
-      input.jobDescription,
-    );
-
-    const research = await runResearch(
-      input.companyUrl,
-      jdExtraction.roleTitle,
-    );
-
-    const companyResearchText = [
-      research.companyResearch.text,
-      ...research.companyResearch.pages.map(
-        (page) => page.text,
-      ),
-    ].join("\n\n");
-
-    const questionResult = await generateQuestions(
-      jdExtraction.requirements,
-      companyResearchText,
-    );
-
-    const questions = await completeCoverage(
-      jdExtraction.requirements,
-      questionResult.questions,
-    );
-
-    const flashcardResult =
-      await generateFlashcards(questions);
-
-    const schedule = generateSchedule(
-      questions,
-      jdExtraction.requirements,
-      input.days,
-    );
-
-    const scheduleErrors = validateSchedule(
-      schedule,
-      input.days,
-    );
-
-    if (scheduleErrors.length > 0) {
-      throw new AppError(
-        ERROR_CODES.KIT_VALIDATION_FAILED,
-        `${ERROR_MESSAGES.KIT_VALIDATION_FAILED}: ${scheduleErrors.join(", ")}`,
-        502,
-      );
-    }
-
-    const coverage = jdExtraction.requirements.map(
-      (requirement) => ({
-        requirementId: requirement.id,
-        covered: questions.some((question) =>
-          question.requirementIds.includes(requirement.id),
-        ),
-      }),
-    );
-
-    const kit: InterviewKit = {
-      source: {
-        jobDescription: input.jobDescription,
-        companyUrl: input.companyUrl,
-      },
-      companyBrief: research.companyBrief,
-      role: {
-        title: jdExtraction.roleTitle,
-        requirements: jdExtraction.requirements,
-      },
-      questions,
-      flashcards: flashcardResult.flashcards,
-      schedule,
-      coverage,
-      warnings: research.warnings,
-    };
-
-    /**
-     * Final validation gate before persisting. Combines the schema-level
-     * shape check with the deeper builder-level check (question/flashcard
-     * content, requirement references, company brief shape) so a malformed
-     * pipeline output never reaches the database.
-     */
-    const validationErrors = [
-      ...validateInterviewKit(kit),
-      ...validateEditableInterviewKit(kit),
-    ];
-
-    if (validationErrors.length > 0) {
-      throw new AppError(
-        ERROR_CODES.KIT_VALIDATION_FAILED,
-        `${ERROR_MESSAGES.KIT_VALIDATION_FAILED}: ${validationErrors.join(", ")}`,
-        502,
-      );
-    }
+    const kit = await buildInterviewKit(input);
 
     const savedKit = await saveInterviewKit(kit, ownerId);
 
